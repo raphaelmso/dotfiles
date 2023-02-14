@@ -1,0 +1,8 @@
+font:
+  normal:
+    family: "MesloLGS NF"
+  size: 8
+
+window: 
+  opacity: 0.8
+
