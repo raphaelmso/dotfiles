@@ -99,6 +99,8 @@ return packer.startup(function(use)
 
 	use("ThePrimeagen/vim-be-good") -- Vim training
 
+	use("NvChad/nvim-colorizer.lua")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
