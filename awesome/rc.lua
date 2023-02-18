@@ -15,12 +15,10 @@ local awful = require("awful")
 require("awful.autofocus")
 
 -- Widget and layout library
-
 local wibox = require("wibox")
 local lain = require("lain")
 
 -- Lain Widgets
-
 local cpu = lain.widget.cpu({
 	settings = function()
 		widget:set_markup(" CPU " .. cpu_now.usage .. "% ")
@@ -96,7 +94,7 @@ beautiful.init(gears.filesystem.get_themes_dir() .. "tokyo-night/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty"
-editor = "nvim"
+editor = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
@@ -110,13 +108,49 @@ modkey = "Mod4"
 awful.layout.layouts = {
 	awful.layout.suit.tile,
 	awful.layout.suit.tile.left,
-	awful.layout.suit.tile.bottom,
 	awful.layout.suit.floating,
+	-- awful.layout.suit.tile.top,
+	-- awful.layout.suit.corner.ne,
+	-- awful.layout.suit.corner.sw,
+	-- awful.layout.suit.corner.se,
 }
 -- }}}
 
+-- {{{ Menu
+-- Create a launcher widget and a main menu
+myawesomemenu = {
+	{
+		"hotkeys",
+		function()
+			hotkeys_popup.show_help(nil, awful.screen.focused())
+		end,
+	},
+	{ "manual", terminal .. " -e man awesome" },
+	{ "edit config", editor_cmd .. " " .. awesome.conffile },
+	{ "restart", awesome.restart },
+	{
+		"quit",
+		function()
+			awesome.quit()
+		end,
+	},
+}
+
+mymainmenu = awful.menu({
+	items = {
+		{ "awesome", myawesomemenu, beautiful.awesome_icon },
+		{ "open terminal", terminal },
+	},
+})
+
+mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = mymainmenu })
+
+-- Menubar configuration
+menubar.utils.terminal = terminal -- Set the terminal for applications that require it
+-- }}}
+
 -- Keyboard map indicator and switcher
--- mykeyboardlayout = awful.widget.keyboardlayout()
+mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
@@ -218,32 +252,27 @@ awful.screen.connect_for_each_screen(function(s)
 	})
 
 	-- Create a tasklist widget
-	-- s.mytasklist = awful.widget.tasklist {
-	--     screen  = s,
-	--     filter  = awful.widget.tasklist.filter.currenttags,
-	--     buttons = tasklist_buttons
-	-- }
+	s.mytasklist = awful.widget.tasklist({
+		screen = s,
+		filter = awful.widget.tasklist.filter.focused,
+		-- buttons = tasklist_buttons,
+	})
 
 	-- Create the wibox
 	s.mywibox = awful.wibar({ position = "top", screen = s })
-
-	--aqui
 
 	-- Add widgets to the wibox
 	s.mywibox:setup({
 		layout = wibox.layout.align.horizontal,
 		{ -- Left widgets
 			layout = wibox.layout.fixed.horizontal,
-			mylauncher,
 			s.mylayoutbox,
-			separator,
 			s.mytaglist,
 			s.mypromptbox,
 		},
 		s.mytasklist, -- Middle widget
 		{ -- Right widgets
 			layout = wibox.layout.fixed.horizontal,
-
 			wibox.widget.systray(),
 			separator,
 			volume,
@@ -261,7 +290,13 @@ end)
 -- }}}
 
 -- {{{ Mouse bindings
-root.buttons(gears.table.join(awful.button({}, 4, awful.tag.viewnext), awful.button({}, 5, awful.tag.viewprev)))
+root.buttons(gears.table.join(
+	awful.button({}, 3, function()
+		mymainmenu:toggle()
+	end),
+	awful.button({}, 4, awful.tag.viewnext),
+	awful.button({}, 5, awful.tag.viewprev)
+))
 -- }}}
 
 --  _  __________     _______
@@ -270,6 +305,8 @@ root.buttons(gears.table.join(awful.button({}, 4, awful.tag.viewnext), awful.but
 -- |  < |  __|   \   / \___ \
 -- | . \| |____   | |  ____) |
 -- |_|\_\______|  |_| |_____/
+
+-- {{{ Key bindings
 
 globalkeys = gears.table.join(
 	awful.key({ modkey }, "s", hotkeys_popup.show_help, { description = "show help", group = "awesome" }),
@@ -283,6 +320,9 @@ globalkeys = gears.table.join(
 	awful.key({ modkey }, "k", function()
 		awful.client.focus.byidx(-1)
 	end, { description = "focus previous by index", group = "client" }),
+	awful.key({ modkey }, "w", function()
+		mymainmenu:show()
+	end, { description = "show main menu", group = "awesome" }),
 
 	-- ROFI
 
@@ -295,7 +335,7 @@ globalkeys = gears.table.join(
 		awful.spawn("flameshot gui")
 	end),
 
-	-- FIREFOX
+	-- BRAVE
 	awful.key({ modkey }, "b", function()
 		awful.spawn("brave")
 	end),
@@ -509,6 +549,7 @@ clientbuttons = gears.table.join(
 
 -- Set keys
 root.keys(globalkeys)
+-- }}}
 
 --  _____  _    _ _      ______  _____
 -- |  __ \| |  | | |    |  ____|/ ____|
@@ -570,7 +611,7 @@ awful.rules.rules = {
 	},
 
 	-- Add titlebars to normal clients and dialogs
-	{ rule_any = { type = { "normal", "dialog" } }, properties = { titlebars_enabled = false } },
+	-- { rule_any = { type = { "normal", "dialog" } }, properties = { titlebars_enabled = true } },
 
 	-- Set Firefox to always map on the tag named "2" on screen 1.
 	-- { rule = { class = "Firefox" },
@@ -645,21 +686,22 @@ client.connect_signal("unfocus", function(c)
 	c.border_color = beautiful.border_normal
 end)
 -- }}}
---
 
---  _________          ________          _  __ _____
--- |__   __\ \        / /  ____|   /\   | |/ // ____|
---    | |   \ \  /\  / /| |__     /  \  | ' /| (___
---    | |    \ \/  \/ / |  __|   / /\ \ |  <  \___ \
---    | |     \  /\  /  | |____ / ____ \| . \ ____) |
---    |_|      \/  \/   |______/_/    \_\_|\_\_____/
+--  _______                 _
+-- |__   __|               | |
+--    | |_      _____  __ _| | _____
+--    | \ \ /\ / / _ \/ _` | |/ / __|
+--    | |\ V  V /  __/ (_| |   <\__ \
+--    |_| \_/\_/ \___|\__,_|_|\_\___/
 
--- GAPS
-
+-- Gaps
 beautiful.useless_gap = 5
 
--- STARTUP APPS
-
+-- Startup
 awful.spawn.with_shell("picom")
 awful.spawn.with_shell("nitrogen --restore")
 awful.spawn.once("greenclip daemon")
+
+-- Titlebar
+beautiful.tasklist_disable_icon = true
+beautiful.tasklist_plain_task_name = true
