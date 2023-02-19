@@ -107,8 +107,8 @@ modkey = "Mod4"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
 	awful.layout.suit.tile,
-	awful.layout.suit.tile.left,
 	awful.layout.suit.floating,
+	-- awful.layout.suit.tile.left,
 	-- awful.layout.suit.tile.top,
 	-- awful.layout.suit.corner.ne,
 	-- awful.layout.suit.corner.sw,
@@ -266,7 +266,7 @@ awful.screen.connect_for_each_screen(function(s)
 		layout = wibox.layout.align.horizontal,
 		{ -- Left widgets
 			layout = wibox.layout.fixed.horizontal,
-			s.mylayoutbox,
+			-- s.mylayoutbox,
 			s.mytaglist,
 			s.mypromptbox,
 		},
@@ -320,9 +320,6 @@ globalkeys = gears.table.join(
 	awful.key({ modkey }, "k", function()
 		awful.client.focus.byidx(-1)
 	end, { description = "focus previous by index", group = "client" }),
-	awful.key({ modkey }, "w", function()
-		mymainmenu:show()
-	end, { description = "show main menu", group = "awesome" }),
 
 	-- ROFI
 
