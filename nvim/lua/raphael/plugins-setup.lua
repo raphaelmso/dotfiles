@@ -97,8 +97,10 @@ return packer.startup(function(use)
 	-- git signs plugin
 	use("lewis6991/gitsigns.nvim")
 
-	use("ThePrimeagen/vim-be-good") -- Vim training
+	-- Vim training
+	use("ThePrimeagen/vim-be-good")
 
+	-- colorizer
 	use("NvChad/nvim-colorizer.lua")
 
 	if packer_bootstrap then
