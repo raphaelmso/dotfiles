@@ -95,7 +95,7 @@ return packer.startup(function(use)
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("jayp0521/mason-null-ls.nvim")
 
-	-- Treesitter configuration
+	-- Treesitter configuration | Highlights
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = function()
@@ -126,6 +126,9 @@ return packer.startup(function(use)
 		end,
 		ft = { "markdown" },
 	})
+
+	-- Floating Terminal
+	use("voldikss/vim-floaterm")
 
 	if packer_bootstrap then
 		require("packer").sync()

@@ -238,6 +238,11 @@ _G.packer_plugins = {
     path = "/home/raphael/.local/share/nvim/site/pack/packer/start/vim-be-good",
     url = "https://github.com/ThePrimeagen/vim-be-good"
   },
+  ["vim-floaterm"] = {
+    loaded = true,
+    path = "/home/raphael/.local/share/nvim/site/pack/packer/start/vim-floaterm",
+    url = "https://github.com/voldikss/vim-floaterm"
+  },
   ["vim-maximizer"] = {
     loaded = true,
     path = "/home/raphael/.local/share/nvim/site/pack/packer/start/vim-maximizer",
