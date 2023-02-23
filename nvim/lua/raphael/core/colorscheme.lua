@@ -3,7 +3,7 @@ require("tokyonight").setup({
 	styles = {
 		sidebars = "transparent",
 		floats = "transparent",
-  },
+	},
 })
 
 local status, _ = pcall(vim.cmd, "colorscheme tokyonight")

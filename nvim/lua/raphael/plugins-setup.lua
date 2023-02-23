@@ -26,62 +26,76 @@ if not status then
 end
 
 return packer.startup(function(use)
+	-- Packer
 	use("wbthomason/packer.nvim")
-	use("nvim-lua/plenary.nvim") -- luca functions that many plugins use
 
-	use("folke/tokyonight.nvim") -- Tokyo Night theme
+	-- lua functions that many plugins use
+	use("nvim-lua/plenary.nvim")
 
-	use("christoomey/vim-tmux-navigator") -- Tmux navigation
+	-- Tokyo Night theme
+	use("folke/tokyonight.nvim")
 
-	use("szw/vim-maximizer") -- maximizes and restores current window
+	-- Tmux navigation
+	use("christoomey/vim-tmux-navigator")
 
-	use("tpope/vim-surround") -- surround lines/words with motions <READ DOCS>
+	-- Maximizes and restores current window
+	use("szw/vim-maximizer")
 
+	-- Surround lines/words with motions <READ DOCS>
+	use("tpope/vim-surround")
+
+	-- Replace with register
 	use("vim-scripts/ReplaceWithRegister") -- <READ DOCS>
 
-	use("numToStr/Comment.nvim") -- Makes comment moves easier
+	-- Makes comment moves easier
+	use("numToStr/Comment.nvim")
 
-	use("nvim-tree/nvim-tree.lua") -- file explorer
+	-- File explorer
+	use("nvim-tree/nvim-tree.lua")
 
-	use("kyazdani42/nvim-web-devicons") -- icons
+	-- Icons like VSCode
+	use("kyazdani42/nvim-web-devicons")
 
-	use("nvim-lualine/lualine.nvim") -- statusLine
+	-- StatusLine
+	use("nvim-lualine/lualine.nvim")
 
-	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
-	use("nvim-telescope/telescope.nvim") -- fuzzy finder
+	-- Telescope and its dependency for better sorting performance
+	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+	use("nvim-telescope/telescope.nvim")
 
-	use("hrsh7th/nvim-cmp") -- Autocompletion
-	use("hrsh7th/cmp-buffer") -- Addon
-	use("hrsh7th/cmp-path") -- Addon
+	-- Autocompletion
+	use("hrsh7th/nvim-cmp")
+	use("hrsh7th/cmp-buffer")
+	use("hrsh7th/cmp-path")
 
-	-- snippets
+	-- Snippets
 	use("L3MON4D3/LuaSnip")
 	use("saadparwaiz1/cmp_luasnip")
 	use("rafamadriz/friendly-snippets")
 
-	-- managing and installing lsp servers
-	use("williamboman/mason.nvim")
-	use("williamboman/mason-lspconfig.nvim")
+	-- Managing and installing lsp servers
+	use("williamboman/mason.nvim") -- Easily manage external editor tooling like LSP Servers, linters and formatters
+	use("williamboman/mason-lspconfig.nvim") -- Closes some gaps that exist between mason.nvim and lspconfig
 
-	-- configuring lsp servers
+	-- Configuring lsp servers
 	use("neovim/nvim-lspconfig")
-	use("hrsh7th/cmp-nvim-lsp")
+	use("hrsh7th/cmp-nvim-lsp") -- Makes possible to configure LSP server to appear in autocompletion
 	use({
-		"glepnir/lspsaga.nvim",
+		"glepnir/lspsaga.nvim", -- Enhanced UI to LSP
 		branch = "main",
 		requires = {
 			{ "nvim-tree/nvim-web-devicons" },
 			{ "nvim-treesitter/nvim-treesitter" },
 		},
-	}) -- enhanced lsp uis
+	}) -- Enhanced lsp uis
 	use("jose-elias-alvarez/typescript.nvim")
-	use("onsails/lspkind.nvim")
+	use("onsails/lspkind.nvim") -- Add VSCode icons to autocompletion
 
-	-- formatting and linting
+	-- Formatting and linting
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("jayp0521/mason-null-ls.nvim")
 
-	-- treesitter configuration
+	-- Treesitter configuration
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = function()
@@ -90,18 +104,28 @@ return packer.startup(function(use)
 		end,
 	})
 
-	-- auto closing
+	-- Auto closing
 	use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
 	use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
 
-	-- git signs plugin
+	-- Git signs plugin
 	use("lewis6991/gitsigns.nvim")
 
 	-- Vim training
 	use("ThePrimeagen/vim-be-good")
 
-	-- colorizer
+	-- Colorizer - Show colors in code
 	use("NvChad/nvim-colorizer.lua")
+
+	-- Markdown Preview
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = "cd app && npm install",
+		setup = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
+	})
 
 	if packer_bootstrap then
 		require("packer").sync()

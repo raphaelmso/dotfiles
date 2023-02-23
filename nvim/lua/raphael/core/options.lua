@@ -1,17 +1,17 @@
-local opt = vim.opt -- for conciseness
+local opt = vim.opt -- Vim options variable for conciseness
 
 --line numbers
 opt.relativenumber = true
 opt.number = true
 
--- line numbers
+-- tabs and indentation
 opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
 opt.autoindent = true
 
 -- line wrapping
-opt.wrap = false
+opt.wrap = true
 
 -- search settings
 opt.ignorecase = true
@@ -32,7 +32,7 @@ opt.backspace = "indent,eol,start"
 opt.clipboard:append("unnamedplus")
 
 -- split windows
-opt.splitright = true
-opt.splitbelow = true
+opt.splitright = true -- vertical
+opt.splitbelow = true -- horizontal
 
-opt.iskeyword:append("-")
+opt.iskeyword:append("-") -- considers dash "-" as a part of the word
