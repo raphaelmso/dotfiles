@@ -16,36 +16,46 @@ require("awful.autofocus")
 
 -- Widget and layout library
 local wibox = require("wibox")
-local lain = require("lain")
+
+-- theme
+local theme = {}
+theme.confdir = os.getenv("HOME") .. "/.config/awesome/themes/zsn"
+theme.font = "MesloLGS NF Bold 7"
 
 -- Lain Widgets
+local lain = require("lain")
+local markup = lain.util.markup
+
 local cpu = lain.widget.cpu({
 	settings = function()
-		widget:set_markup(" CPU " .. cpu_now.usage .. "% ")
+		widget:set_markup(markup.font(theme.font, "[CPU " .. cpu_now.usage .. "%]"))
 	end,
 })
 
 local mymem = lain.widget.mem({
 	settings = function()
-		widget:set_markup(" MEM " .. mem_now.perc .. "% ")
+		widget:set_markup(markup.font(theme.font, "[MEM " .. mem_now.perc .. "%]"))
 	end,
 })
 
 local volume = lain.widget.alsa({
 	settings = function()
-		widget:set_markup(" VOL " .. volume_now.level .. "% ")
+		widget:set_markup(markup.font(theme.font, "[VOL " .. volume_now.level .. "%]"))
 	end,
 })
 
 local mybattery = lain.widget.bat({
 	settings = function()
-		widget:set_markup(" BAT " .. bat_now.perc .. "% - " .. bat_now.status)
+		widget:set_markup(markup.font(theme.font, "[BAT " .. bat_now.perc .. "% - " .. bat_now.status .. "]"))
 	end,
 })
 
+-- awesome-wm-widgets
+local cmus_widget = require("awesome-wm-widgets.cmus-widget.cmus")
+
 -- My Widgets
-local separator = wibox.widget.textbox("  ")
-local separator_big = wibox.widget.textbox("      ")
+local separator = wibox.widget.textbox("    ")
+local separator_min = wibox.widget.textbox(" ")
 
 -- Theme handling library
 local beautiful = require("beautiful")
@@ -91,6 +101,7 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "tokyo-night/theme.lua")
+beautiful.init(string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), "zsn"))
 
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty"
@@ -118,36 +129,36 @@ awful.layout.layouts = {
 
 -- {{{ Menu
 -- Create a launcher widget and a main menu
-myawesomemenu = {
-	{
-		"hotkeys",
-		function()
-			hotkeys_popup.show_help(nil, awful.screen.focused())
-		end,
-	},
-	{ "manual", terminal .. " -e man awesome" },
-	{ "edit config", editor_cmd .. " " .. awesome.conffile },
-	{ "restart", awesome.restart },
-	{
-		"quit",
-		function()
-			awesome.quit()
-		end,
-	},
-}
-
-mymainmenu = awful.menu({
-	items = {
-		{ "awesome", myawesomemenu, beautiful.awesome_icon },
-		{ "open terminal", terminal },
-	},
-})
-
-mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = mymainmenu })
-
--- Menubar configuration
-menubar.utils.terminal = terminal -- Set the terminal for applications that require it
--- }}}
+-- myawesomemenu = {
+-- 	{
+-- 		"hotkeys",
+-- 		function()
+-- 			hotkeys_popup.show_help(nil, awful.screen.focused())
+-- 		end,
+-- 	},
+-- 	{ "manual", terminal .. " -e man awesome" },
+-- 	{ "edit config", editor_cmd .. " " .. awesome.conffile },
+-- 	{ "restart", awesome.restart },
+-- 	{
+-- 		"quit",
+-- 		function()
+-- 			awesome.quit()
+-- 		end,
+-- 	},
+-- }
+--
+-- mymainmenu = awful.menu({
+-- 	items = {
+-- 		{ "awesome", myawesomemenu, beautiful.awesome_icon },
+-- 		{ "open terminal", terminal },
+-- 	},
+-- })
+--
+-- mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = mymainmenu })
+--
+-- -- Menubar configuration
+-- menubar.utils.terminal = terminal -- Set the terminal for applications that require it
+-- -- }}}
 
 -- Keyboard map indicator and switcher
 mykeyboardlayout = awful.widget.keyboardlayout()
@@ -158,7 +169,7 @@ local mytextclock = wibox.widget.textclock()
 local month_calendar = awful.widget.calendar_popup.month({
 	margin = 5,
 })
-month_calendar:attach(mytextclock, "tr")
+month_calendar:attach(mytextclock, "tp")
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -264,13 +275,18 @@ awful.screen.connect_for_each_screen(function(s)
 	-- Add widgets to the wibox
 	s.mywibox:setup({
 		layout = wibox.layout.align.horizontal,
+		expand = "none",
 		{ -- Left widgets
 			layout = wibox.layout.fixed.horizontal,
 			-- s.mylayoutbox,
 			s.mytaglist,
-			s.mypromptbox,
+			cmus_widget({
+				space = 5,
+			}),
 		},
-		s.mytasklist, -- Middle widget
+		-- s.mytasklist,
+		-- Middle widget
+		mytextclock,
 		{ -- Right widgets
 			layout = wibox.layout.fixed.horizontal,
 			wibox.widget.systray(),
@@ -282,21 +298,20 @@ awful.screen.connect_for_each_screen(function(s)
 			cpu.widget,
 			separator,
 			mybattery.widget,
-			separator,
-			mytextclock,
+			separator_min,
 		},
 	})
 end)
 -- }}}
 
 -- {{{ Mouse bindings
-root.buttons(gears.table.join(
-	awful.button({}, 3, function()
-		mymainmenu:toggle()
-	end),
-	awful.button({}, 4, awful.tag.viewnext),
-	awful.button({}, 5, awful.tag.viewprev)
-))
+-- root.buttons(gears.table.join(
+-- 	awful.button({}, 3, function()
+-- 		mymainmenu:toggle()
+-- 	end),
+-- 	awful.button({}, 4, awful.tag.viewnext),
+-- 	awful.button({}, 5, awful.tag.viewprev)
+-- ))
 -- }}}
 
 --  _  __________     _______
@@ -321,6 +336,36 @@ globalkeys = gears.table.join(
 		awful.client.focus.byidx(-1)
 	end, { description = "focus previous by index", group = "client" }),
 
+	-- THUNAR
+	awful.key({ modkey }, "a", function()
+		awful.spawn("thunar")
+	end, { description = "thunar file manager", group = "files" }),
+
+	-- CMUS
+	awful.key({ modkey }, "z", function()
+		awful.spawn("alacritty -e cmus")
+	end, { description = "show music player", group = "music" }),
+
+	awful.key({}, "XF86AudioPlay", function()
+		cmus_widget:play_pause()
+	end, { description = "play track", group = "cmus" }),
+	awful.key({}, "XF86AudioNext", function()
+		cmus_widget:next_track()
+	end, { description = "next track", group = "cmus" }),
+	awful.key({}, "XF86AudioPrev", function()
+		cmus_widget:prev_track()
+	end, { description = "previous track", group = "cmus" }),
+
+	-- BRIGHTNESS
+
+	awful.key({}, "XF86MonBrightnessUp", function()
+		awful.spawn("brightnessctl set +100")
+	end),
+
+	awful.key({}, "XF86MonBrightnessDown", function()
+		awful.spawn("brightnessctl set 100-")
+	end),
+
 	-- ROFI
 
 	awful.key({ modkey }, "w", function()
@@ -341,7 +386,7 @@ globalkeys = gears.table.join(
 
 	awful.key({ modkey }, "c", function()
 		awful.spawn("rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'")
-	end),
+	end, { description = "show clipboard", group = "launcher" }),
 
 	-- VOLUME ALSA CONTROL
 	awful.key({}, "XF86AudioRaiseVolume", function()
@@ -429,7 +474,7 @@ globalkeys = gears.table.join(
 	-- Prompt
 	awful.key({ modkey }, "r", function()
 		awful.spawn.with_shell("rofi -show drun")
-	end, { description = "run prompt", group = "launcher" }),
+	end, { description = "show rofi", group = "launcher" }),
 
 	awful.key({ modkey }, "x", function()
 		awful.prompt.run({
@@ -568,7 +613,7 @@ awful.rules.rules = {
 			keys = clientkeys,
 			buttons = clientbuttons,
 			screen = awful.screen.preferred,
-			placement = awful.placement.no_overlap + awful.placement.no_offscreen,
+			placement = awful.placement.no_overlap + awful.placement.no_offscreen + awful.placement.centered,
 		},
 	},
 
@@ -582,7 +627,8 @@ awful.rules.rules = {
 			},
 			class = {
 				"Arandr",
-				"Blueman-manager",
+				"Pavucontrol",
+				"Blueberry",
 				"Gpick",
 				"Kruler",
 				"MessageWin", -- kalarm.
@@ -611,8 +657,7 @@ awful.rules.rules = {
 	-- { rule_any = { type = { "normal", "dialog" } }, properties = { titlebars_enabled = true } },
 
 	-- Set Firefox to always map on the tag named "2" on screen 1.
-	-- { rule = { class = "Firefox" },
-	--   properties = { screen = 1, tag = "2" } },
+	{ rule = { class = "Brave" }, properties = { screen = 1, tag = "2" } },
 }
 -- }}}
 
