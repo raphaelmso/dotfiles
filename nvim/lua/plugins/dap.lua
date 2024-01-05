@@ -1,0 +1,55 @@
+return {
+  -- 	{
+  -- 		"mfussenegger/nvim-dap",
+  -- 		config = function()
+  -- 			local dap = require("dap")
+  --
+  -- 			dap.adapters["pwa-node"] = {
+  -- 				type = "server",
+  -- 				host = "127.0.0.1",
+  -- 				port = "8123",
+  -- 				executable = {
+  -- 					command = "js-debug-adapter",
+  -- 				},
+  -- 			}
+  --
+  -- 			for _, language in ipairs({ "typescript", "javascript" }) do
+  -- 				dap.configurations[language] = {
+  -- 					{
+  -- 						type = "pwa-node",
+  -- 						request = "launch",
+  -- 						name = "Launch file",
+  -- 						program = "${file}",
+  -- 						cwd = "${workspaceFolder}",
+  -- 						runtimeExecutable = "node",
+  -- 					},
+  -- 				}
+  -- 			end
+  --
+  -- 			vim.keymap.set("n", "<leader>dt", ":lua require('dapui').toggle()<cr>")
+  -- 			vim.keymap.set("n", "<leader>db", ":lua require'dap'.toggle_breakpoint()<cr>")
+  -- 			vim.keymap.set("n", "<F5>", ":lua require'dap'.continue()<cr>")
+  -- 			vim.keymap.set("n", "<F10>", ":lua require'dap'.step_over()<cr>")
+  -- 			vim.keymap.set("n", "<F11>", ":lua require'dap'.step_into()<cr>")
+  -- 			vim.keymap.set("n", "<F12>", ":lua require'dap'.step_out()<cr>")
+  -- 			vim.keymap.set("n", "<leader>dr", ":lua require'dap'.repl.open()<cr>")
+  -- 			vim.keymap.set("n", "<leader>dl", ":lua require'dap'.run_last()<cr>")
+  -- 		end,
+  -- 	},
+  -- 	{
+  -- 		"rcarriga/nvim-dap-ui",
+  -- 		event = "VeryLazy",
+  -- 		config = function()
+  -- 			local dap, dapui = require("dap"), require("dapui")
+  -- 			dap.listeners.after.event_initialized["dapui_config"] = function()
+  -- 				dapui.open()
+  -- 			end
+  -- 			dap.listeners.before.event_terminated["dapui_config"] = function()
+  -- 				dapui.close()
+  -- 			end
+  -- 			dap.listeners.before.event_exited["dapui_config"] = function()
+  -- 				dapui.close()
+  -- 			end
+  -- 		end,
+  -- 	},
+}
