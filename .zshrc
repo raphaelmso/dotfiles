@@ -8,49 +8,59 @@ plug "zsh-users/zsh-syntax-highlighting"
 plug "zap-zsh/vim"
 plug "zap-zsh/completions"
 
+
+# PROMPT
 autoload -Uz vcs_info
 precmd() { vcs_info }
 zstyle ':vcs_info:git*' formats "%b %m%u%c "
 zstyle ':vcs_info:*' check-for-changes true
 setopt PROMPT_SUBST
-PROMPT="%B%{$fg[blue]%}[%{$fg[white]%}%n%{$fg[blue]%}@%{$fg[white]%}%m%{$fg[blue]%}] %(?:%{$fg_bold[green]%} :%{$fg_bold[red]%}➜ )%{$fg[cyan]%}%2c%{$reset_color%} %F{red}${vcs_info_msg_0_}%f"
+PROMPT="%B%{$fg[blue]%}[%{$fg[white]%}%n%{$fg[blue]%}@%{$fg[white]%}%m%{$fg[blue]%}] %(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )%{$fg[cyan]%}%2c%{$reset_color%} %F{red}${vcs_info_msg_0_}%f"
 PROMPT+='%B%F{red}${vcs_info_msg_0_}%f%b'
 
-#Binds
+# Binds
 bindkey '^[[A' history-substring-search-up
 bindkey '^[OA' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 bindkey '^[OB' history-substring-search-down
 
+# functions
+cdls() {
+    cd "$1" && eza --icons 
+}
 
 # Shortcuts
 alias n="nvim"
 alias nf='nvim $(fzf)'
 alias ss="shutdown now"
 alias sr="reboot"
-alias dl="yt-dlp -P ~/Videos/yt-dlp/ -f mp4"
+alias dl="yt-dlp"
+alias dlv="yt-dlp -P ~/Videos/Downloads/ -f mp4"
 
 # Remaps 
-alias cat="bat"
+alias cat="batcat"
 alias l="eza -l --icons"
 alias ls="eza --icons"
 alias la="eza -a --icons"
 
 # Folder navigation 
-alias cdn="cd ~/.config/nvim/"
-alias cdt="cd ~/Programming/tests/"
-alias cdp="cd ~/Programming"
-alias cdg="cd ~/Programming/Git/"
-alias cdd="cd ~/Programming/Git/dotfiles/"
+alias cs='cdls'
+alias cdn="cd ~/.config/nvim/ && eza --icons"
+alias cdp="cd ~/Programming && eza --icons"
+alias cdg="cd ~/Programming/Git/ && eza --icons"
+alias cdd="cd ~/Programming/Git/dotfiles/ && eza --icons"
+alias cdr="cd ~/Programming/Random-Projects/ && eza --icons"
+alias cdt="cd ~/Programming/Random-Projects/Tests/ && eza --icons"
 
 # TMUX
 alias t="tmux"
-alias ta="tmux attach -t"
+alias ta="tmux attach"
 alias tad="tmux attach -d -t"
 alias ts="tmux new-session -s"
 alias tl="tmux list-sessions"
 alias tksv="tmux kill-server"
 alias tkss="tmux kill-session -t"
+alias td="tmux new-session -s dev"
 
 # Git
 alias g="git"
@@ -60,3 +70,7 @@ alias gs="git status"
 # Load and initialise completion system
 autoload -Uz compinit
 compinit
+
+# fnm
+export PATH="/home/raphael/.local/share/fnm:$PATH"
+eval "`fnm env`"
