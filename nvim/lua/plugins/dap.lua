@@ -87,7 +87,7 @@ return {
 
         vim.keymap.set("n", "<leader>dt", ":lua require('dapui').toggle()<cr>")
         vim.keymap.set("n", "<leader>de", ":lua require('dapui').eval()<cr>")
-        vim.keymap.set("n", "<leader>dr", ":lua require('dapui').open({reset = true})<cr>")
+        vim.keymap.set("n", "<leader>dr", ":lua for i=1,5 do require('dapui').open({reset = true}) end<cr>")
         vim.keymap.set(
           "n",
           "<leader>dB",

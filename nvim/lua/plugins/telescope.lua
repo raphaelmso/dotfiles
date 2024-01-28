@@ -9,6 +9,7 @@ return {
 			local actions = require("telescope.actions")
 			require("telescope").setup({
 				defaults = {
+					file_ignore_patterns = { "node_modules" },
 					mappings = {
 						i = {
 							["<A-k>"] = actions.move_selection_previous,
@@ -19,13 +20,13 @@ return {
 				},
 			})
 
-			vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
-			vim.keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find files within current working directory, respects .gitignore
-			vim.keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
-			vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
-			vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
-			vim.keymap.set("n", "<leader>km", "<cmd>Telescope keymaps<CR>") -- list keymaps
-			vim.keymap.set("n", "<leader>e", "<cmd>Telescope file_browser<CR>") -- file browser
+			vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
+			vim.keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>")
+			vim.keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>")
+			vim.keymap.set("n", "<leader>fo", "<cmd>Telescope buffers<cr>")
+			vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
+			vim.keymap.set("n", "<leader>fk", "<cmd>Telescope keymaps<CR>")
+			vim.keymap.set("n", "<leader>fb", "<cmd>Telescope file_browser<CR>")
 
 			require("telescope").load_extension("file_browser")
 		end,
