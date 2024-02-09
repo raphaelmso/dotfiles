@@ -8,6 +8,11 @@ plug "zsh-users/zsh-syntax-highlighting"
 plug "zap-zsh/vim"
 plug "zap-zsh/completions"
 
+# export
+export ANDROID_HOME=/home/raphael/Android/Sdk/
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export EDITOR='nvim'
+export VISUAL='nvim'
 
 # PROMPT
 autoload -Uz vcs_info
@@ -31,9 +36,9 @@ cdls() {
 
 # Shortcuts
 alias n="nvim"
-alias nf='nvim $(fzf)'
-alias ss="shutdown now"
-alias sr="reboot"
+alias fn='nvim $(fzf)'
+alias fc='cd $(fdfind . -td | fzf) && eza --icons'
+alias fts='cd $(fdfind . -td | fzf) && tmux new-session'
 alias dl="yt-dlp"
 alias dlv="yt-dlp -P ~/Videos/Downloads/ -f mp4"
 
@@ -48,7 +53,7 @@ alias cs='cdls'
 alias cdn="cd ~/.config/nvim/ && eza --icons"
 alias cdp="cd ~/Programming && eza --icons"
 alias cdg="cd ~/Programming/Git/ && eza --icons"
-alias cdd="cd ~/Programming/Git/dotfiles/ && eza --icons"
+alias cdd="cd ~/dotfiles/ && eza --icons"
 alias cdr="cd ~/Programming/Random-Projects/ && eza --icons"
 alias cdt="cd ~/Programming/Random-Projects/Tests/ && eza --icons"
 
@@ -59,6 +64,7 @@ alias tad="tmux attach -d -t"
 alias ts="tmux new-session -s"
 alias tl="tmux list-sessions"
 alias tksv="tmux kill-server"
+alias tka="tmux kill-server && rm -rf ~/.local/share/tmux/ressurect"
 alias tkss="tmux kill-session -t"
 alias td="tmux new-session -s dev"
 
