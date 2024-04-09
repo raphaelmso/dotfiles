@@ -38,10 +38,11 @@ alias dl="yt-dlp"
 alias dlv="yt-dlp -P ~/Videos/Downloads/ -f mp4"
 
 # Remaps 
-alias cat="batcat"
+alias cat="bat"
+alias tree="erd"
 alias l="eza -l --icons"
 alias ls="eza --icons"
-alias la="eza -a --icons"
+alias la="eza -la --icons"
 
 # Folder navigation 
 alias cdn="cd ~/.config/nvim/ && eza --icons"

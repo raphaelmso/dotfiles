@@ -1,54 +1,71 @@
 return {
-	{
-		"mrcjkb/rustaceanvim",
-		version = "^4", -- Recommended
-		ft = { "rust" },
-		opts = {
-			server = {
-				on_attach = function(_, bufnr)
-					vim.keymap.set("n", "<leader>ca", function()
-						vim.cmd.RustLsp("codeAction")
-					end, { desc = "Code Action", buffer = bufnr })
-					vim.keymap.set("n", "<leader>dr", function()
-						vim.cmd.RustLsp("debuggables")
-					end, { desc = "Rust Debuggables", buffer = bufnr })
-				end,
-				default_settings = {
-					-- rust-analyzer language server configuration
-					["rust-analyzer"] = {
-						cargo = {
-							allFeatures = true,
-							loadOutDirsFromCheck = true,
-							runBuildScripts = true,
-						},
-						-- Add clippy lints for Rust.
-						checkOnSave = {
-							allFeatures = true,
-							command = "clippy",
-							extraArgs = { "--no-deps" },
-						},
-						procMacro = {
-							enable = true,
-							ignored = {
-								["async-trait"] = { "async_trait" },
-								["napi-derive"] = { "napi" },
-								["async-recursion"] = { "async_recursion" },
-							},
-						},
-					},
-				},
-			},
-		},
-		config = function(_, opts)
-			vim.g.rustaceanvim = vim.tbl_deep_extend("keep", vim.g.rustaceanvim or {}, opts or {})
-		end,
-	},
+    {
+        "mrcjkb/rustaceanvim",
+        version = "^4", -- Recommended
+        ft = { "rust" },
+        config = function()
+            local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+            vim.g.rustaceanvim = {
+                tools = {
+                    hover_actions = {
+                        auto_focus = true,
+                    },
+                },
+                server = {
+                    on_attach = function(client, bufnr)
+                        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, {})
+                        vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
+                        vim.keymap.set("n", "K", ":RustLsp hover actions<cr>")
+                        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {})
+                        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {})
+                        vim.keymap.set("n", "<leader>ca", ":RustLsp codeAction<cr>")
 
-	{
-		"saecki/crates.nvim",
-		tag = "stable",
-		config = function()
-			require("crates").setup()
-		end,
-	},
+                        if client.supports_method("textDocument/formatting") then
+                            vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+                            vim.api.nvim_create_autocmd("BufWritePre", {
+                                group = augroup,
+                                buffer = bufnr,
+                                callback = function()
+                                    vim.lsp.buf.format()
+                                end,
+                            })
+                        end
+
+                        vim.keymap.set(
+                            "n",
+                            "<leader>dB",
+                            ":lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>"
+                        )
+                        vim.keymap.set("n", "<leader>db", ":lua require('dap').toggle_breakpoint()<cr>")
+                        vim.keymap.set("n", "<F1>", ":RustLSP run")
+                        vim.keymap.set("n", "<F2>", ":RustLSP runnables")
+                        vim.keymap.set("n", "<F5>", ":RustLSP debug")
+                        vim.keymap.set("n", "<F6>", ":RustLSP debuggables")
+                        vim.keymap.set("n", "<F10>", ":lua require('dap').step_over()<cr>")
+                        vim.keymap.set("n", "<F11>", ":lua require('dap').step_into()<cr>")
+                        vim.keymap.set("n", "<F12>", ":lua require('dap').step_out()<cr>")
+                        vim.keymap.set("n", "<leader>dl", ":lua require('dap').run_last()<cr>")
+                        vim.keymap.set("n", "<leader>dl", ":lua require('dap').run_last()<cr>")
+                    end,
+                    default_settings = {
+                        -- rust-analyzer language server configuration
+                        ["rust-analyzer"] = {},
+                    },
+                    -- ...
+                },
+                dap = {
+                    -- ...
+                },
+            }
+            vim.g.rustaceanvim.dap.autoload_configurations = true
+        end,
+    },
+
+    {
+        "saecki/crates.nvim",
+        tag = "stable",
+        config = function()
+            require("crates").setup()
+        end,
+    },
 }
