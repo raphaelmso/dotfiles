@@ -36,6 +36,7 @@ alias fc='cd $(fdfind . -td | fzf) && eza --icons'
 alias fts='cd $(fdfind . -td | fzf) && tmux new-session'
 alias dl="yt-dlp"
 alias dlv="yt-dlp -P ~/Videos/Downloads/ -f mp4"
+alias ws="watch sensors"
 
 # Remaps 
 alias cat="bat"
