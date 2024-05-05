@@ -26,11 +26,6 @@ return {
 			vim.keymap.set("n", "<leader>fo", "<cmd>Telescope buffers<cr>")
 			vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
 			vim.keymap.set("n", "<leader>fk", "<cmd>Telescope keymaps<CR>")
-			vim.keymap.set("n", "<leader>fb", "<cmd>Telescope file_browser<CR>")
-
-			require("telescope").load_extension("file_browser")
 		end,
 	},
-
-	{ "nvim-telescope/telescope-file-browser.nvim" },
 }

@@ -32,7 +32,7 @@ bindkey '^[OB' history-substring-search-down
 # Shortcuts
 alias n="nvim"
 alias fn='nvim $(fzf)'
-alias fc='cd $(fdfind . -td | fzf) && eza --icons'
+alias fcd='cd $(fdfind . -td | fzf) && eza --icons'
 alias fts='cd $(fdfind . -td | fzf) && tmux new-session'
 alias dl="yt-dlp"
 alias dlv="yt-dlp -P ~/Videos/Downloads/ -f mp4"
