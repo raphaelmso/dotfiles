@@ -53,9 +53,7 @@ return {
 					},
 					-- ...
 				},
-				dap = {
-					-- ...
-				},
+				dap = {},
 			}
 			vim.g.rustaceanvim.dap.autoload_configurations = true
 		end,
