@@ -46,12 +46,13 @@ return {
 						vim.keymap.set("n", "<F12>", ":lua require('dap').step_out()<cr>")
 						vim.keymap.set("n", "<leader>dl", ":lua require('dap').run_last()<cr>")
 						vim.keymap.set("n", "<leader>de", ":lua require('dap').terminate()<cr>")
+						vim.keymap.set("n", "<space>ç", function()
+							require("dapui").eval(nil, { enter = true })
+						end) -- thanks TJ Devries
 					end,
 					default_settings = {
-						-- rust-analyzer language server configuration
 						["rust-analyzer"] = {},
 					},
-					-- ...
 				},
 				dap = {},
 			}

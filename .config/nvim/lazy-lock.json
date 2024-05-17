@@ -33,5 +33,6 @@
   "tokyonight.nvim": { "branch": "main", "commit": "67afeaf7fd6ebba000633e89f63c31694057edde" },
   "trouble.nvim": { "branch": "main", "commit": "b9cf677f20bb2faa2dacfa870b084e568dca9572" },
   "vim-fugitive": { "branch": "master", "commit": "ce882460cf3db12e99f8bf579cbf99e331f6dd4f" },
-  "vim-tmux-navigator": { "branch": "master", "commit": "a26954a585b02a2ac02f87145e204f8798a7cbc2" }
+  "vim-tmux-navigator": { "branch": "master", "commit": "a26954a585b02a2ac02f87145e204f8798a7cbc2" },
+  "window-picker": { "branch": "main", "commit": "41cfaa428577c53552200a404ae9b3a0b5719706" }
 }
