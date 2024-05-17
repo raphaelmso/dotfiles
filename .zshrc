@@ -28,14 +28,13 @@ bindkey '^[OA' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 bindkey '^[OB' history-substring-search-down
 
-
 # Shortcuts
 alias n="nvim"
+alias l="lazygit"
 alias fn='nvim $(fzf)'
 alias fcd='cd $(fdfind . -td | fzf) && eza --icons'
 alias fts='cd $(fdfind . -td | fzf) && tmux new-session'
-alias dl="yt-dlp"
-alias dlv="yt-dlp -P ~/Videos/Downloads/ -f mp4"
+alias dl="yt-dlp -P ~/Downloads/ytdlp/"
 alias ws="watch sensors"
 
 # Remaps 
@@ -52,6 +51,7 @@ alias cdg="cd ~/Programming/Git/ && eza --icons"
 alias cdd="cd ~/dotfiles/ && eza --icons"
 alias cdr="cd ~/Programming/Rust/ && eza --icons"
 alias cdrl="cd ~/Programming/Rust/Learning/ && eza --icons"
+alias cdy="cd ~/Downloads/ytdlp && eza --icons"
 
 # TMUX
 alias t="tmux"
@@ -63,11 +63,6 @@ alias tksv="tmux kill-server"
 alias tka="tmux kill-server && rm -rf ~/.local/share/tmux/ressurect"
 alias tkss="tmux kill-session -t"
 alias td="tmux new-session -s dev"
-
-# Git
-alias g="git"
-alias gs="git status"
-
 
 # Load and initialise completion system
 autoload -Uz compinit
