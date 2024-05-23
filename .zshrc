@@ -13,14 +13,14 @@ export PATH=$PATH:/home/raphael/.local/share/bob/nvim-bin
 export EDITOR='nvim'
 export VISUAL='nvim'
 
-# PROMPT
-autoload -Uz vcs_info
-precmd() { vcs_info }
-zstyle ':vcs_info:git*' formats "%b %m%u%c "
-zstyle ':vcs_info:*' check-for-changes true
-setopt PROMPT_SUBST
-PROMPT="%B%{$fg[blue]%}[%{$fg[white]%}%n%{$fg[blue]%}@%{$fg[white]%}%m%{$fg[blue]%}] %(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )%{$fg[cyan]%}%2c%{$reset_color%} %F{red}${vcs_info_msg_0_}%f"
-PROMPT+='%B%F{red}${vcs_info_msg_0_}%f%b'
+# # PROMPT
+ # autoload -Uz vcs_info
+ # precmd() { vcs_info }
+# zstyle ':vcs_info:git*' formats "%b %m%u%c "
+# zstyle ':vcs_info:*' check-for-changes true
+# setopt PROMPT_SUBST
+# PROMPT="%B%{$fg[blue]%}[%{$fg[white]%}%n%{$fg[blue]%}@%{$fg[white]%}%m%{$fg[blue]%}] %(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )%{$fg[cyan]%}%2c%{$reset_color%} %F{red}${vcs_info_msg_0_}%f"
+# PROMPT+='%B%F{red}${vcs_info_msg_0_}%f%b'
 
 # Binds
 bindkey '^[[A' history-substring-search-up
@@ -30,7 +30,7 @@ bindkey '^[OB' history-substring-search-down
 
 # Shortcuts
 alias n="nvim"
-alias l="lazygit"
+alias g="lazygit"
 alias fn='nvim $(fzf)'
 alias fcd='cd $(fdfind . -td | fzf) && eza --icons'
 alias fts='cd $(fdfind . -td | fzf) && tmux new-session'
@@ -67,3 +67,5 @@ alias td="tmux new-session -s dev"
 # Load and initialise completion system
 autoload -Uz compinit
 compinit
+
+eval "$(starship init zsh)"
