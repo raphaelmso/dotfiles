@@ -10,17 +10,10 @@ plug "zap-zsh/completions"
 
 # export
 export PATH=$PATH:/home/raphael/.local/share/bob/nvim-bin
+export PATH=$HOME/.cargo/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 export EDITOR='nvim'
 export VISUAL='nvim'
-
-# # PROMPT
- # autoload -Uz vcs_info
- # precmd() { vcs_info }
-# zstyle ':vcs_info:git*' formats "%b %m%u%c "
-# zstyle ':vcs_info:*' check-for-changes true
-# setopt PROMPT_SUBST
-# PROMPT="%B%{$fg[blue]%}[%{$fg[white]%}%n%{$fg[blue]%}@%{$fg[white]%}%m%{$fg[blue]%}] %(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )%{$fg[cyan]%}%2c%{$reset_color%} %F{red}${vcs_info_msg_0_}%f"
-# PROMPT+='%B%F{red}${vcs_info_msg_0_}%f%b'
 
 # Binds
 bindkey '^[[A' history-substring-search-up
@@ -30,12 +23,15 @@ bindkey '^[OB' history-substring-search-down
 
 # Shortcuts
 alias n="nvim"
-alias g="lazygit"
+alias lg="lazygit"
+alias cd="z"
+alias dl="yt-dlp -P ~/Downloads/ytdlp/"
+alias ws="watch sensors"
+
+# One liners 
 alias fn='nvim $(fzf)'
 alias fcd='cd $(fdfind . -td | fzf) && eza --icons'
 alias fts='cd $(fdfind . -td | fzf) && tmux new-session'
-alias dl="yt-dlp -P ~/Downloads/ytdlp/"
-alias ws="watch sensors"
 
 # Remaps 
 alias cat="bat"
@@ -45,13 +41,12 @@ alias ls="eza --icons"
 alias la="eza -la --icons"
 
 # Folder navigation 
-alias cdn="cd ~/.config/nvim/ && eza --icons"
-alias cdp="cd ~/Programming && eza --icons"
-alias cdg="cd ~/Programming/Git/ && eza --icons"
-alias cdd="cd ~/dotfiles/ && eza --icons"
-alias cdr="cd ~/Programming/Rust/ && eza --icons"
-alias cdrl="cd ~/Programming/Rust/Learning/ && eza --icons"
-alias cdy="cd ~/Downloads/ytdlp && eza --icons"
+alias cdn="z ~/.config/nvim/ && eza --icons"
+alias cdp="z ~/Programming && eza --icons"
+alias cdg="z ~/Programming/Git/ && eza --icons"
+alias cdd="z ~/dotfiles/ && eza --icons"
+alias cdy="z ~/Downloads/ytdlp && eza --icons"
+alias cdo="z ~/Documents/'Obsidian Vault'/"
 
 # TMUX
 alias t="tmux"
@@ -62,10 +57,10 @@ alias tl="tmux list-sessions"
 alias tksv="tmux kill-server"
 alias tka="tmux kill-server && rm -rf ~/.local/share/tmux/ressurect"
 alias tkss="tmux kill-session -t"
-alias td="tmux new-session -s dev"
 
 # Load and initialise completion system
 autoload -Uz compinit
 compinit
 
 eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
