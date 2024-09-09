@@ -10,7 +10,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = { "lua_ls" },
+                ensure_installed = { "lua_ls", "rust_analyzer" },
             })
         end,
     },
@@ -37,7 +37,7 @@ return {
             vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {})
             vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {})
             vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
-            vim.keymap.set("n", "<leader>li", ":lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<cr>")
+            vim.keymap.set("n", ",", ":lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<cr>")
         end,
     },
 }
