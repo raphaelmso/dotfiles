@@ -12,8 +12,12 @@ plug "zap-zsh/completions"
 export PATH=$PATH:/home/raphael/.local/share/bob/nvim-bin
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
+
+
 export EDITOR='nvim'
 export VISUAL='nvim'
+
+export PF_INFO="ascii title os host kernel cpu memory pkgs uptime"
 
 # Binds
 bindkey '^[[A' history-substring-search-up
@@ -29,7 +33,7 @@ alias dl="yt-dlp -P ~/Downloads/ytdlp/"
 alias ws="watch sensors"
 
 # One liners 
-alias fn='nvim $(fzf)'
+alias fn='nvim $(fzf --preview "bat --color=always --style=numbers --line-range=:500 {}" )'
 alias fcd='cd $(fdfind . -td | fzf) && eza --icons'
 alias fts='cd $(fdfind . -td | fzf) && tmux new-session'
 
@@ -42,8 +46,8 @@ alias la="eza -la --icons"
 
 # Folder navigation 
 alias cdn="z ~/.config/nvim/ && eza --icons"
-alias cdp="z ~/Programming && eza --icons"
-alias cdg="z ~/Programming/Git/ && eza --icons"
+alias cdl="z ~/Lab && eza --icons"
+alias cdg="z ~/Lab/Git/ && eza --icons"
 alias cdd="z ~/dotfiles/ && eza --icons"
 alias cdy="z ~/Downloads/ytdlp && eza --icons"
 alias cdo="z ~/Documents/'Obsidian Vault'/"
