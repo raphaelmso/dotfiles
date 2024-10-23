@@ -19,6 +19,7 @@ return {
 						vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {})
 						vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {})
 						vim.keymap.set("n", "<leader>ca", ":RustLsp codeAction<cr>")
+						vim.keymap.set("n", "<leader>le", ":RustLsp explainError<cr>")
 
 						if client.supports_method("textDocument/formatting") then
 							vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })

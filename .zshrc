@@ -29,8 +29,10 @@ bindkey '^[OB' history-substring-search-down
 alias n="nvim"
 alias lg="lazygit"
 alias cd="z"
-alias dl="yt-dlp -P ~/Downloads/ytdlp/"
+alias dlv="yt-dlp -f mp4 -P ~/Videos/ytdlp/"
+alias dla="yt-dlp -f m4a -P ~/Videos/ytdlp/"
 alias ws="watch sensors"
+alias ff="fastfetch"
 
 # One liners 
 alias fn='nvim $(fzf --preview "bat --color=always --style=numbers --line-range=:500 {}" )'
@@ -68,3 +70,5 @@ compinit
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+
+fastfetch
