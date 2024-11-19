@@ -29,7 +29,7 @@ bindkey '^[OB' history-substring-search-down
 alias n="nvim"
 alias lg="lazygit"
 alias cd="z"
-alias dlv="yt-dlp -f mp4 -P ~/Videos/ytdlp/"
+alias dlv="yt-dlp -P ~/Videos/ytdlp/"
 alias dla="yt-dlp -f m4a -P ~/Videos/ytdlp/"
 alias ws="watch sensors"
 alias ff="fastfetch"
@@ -41,7 +41,7 @@ alias fts='cd $(fdfind . -td | fzf) && tmux new-session'
 
 # Remaps 
 alias cat="bat"
-alias tree="erd"
+alias tree="erd -y inverted -H"
 alias l="eza -l --icons"
 alias ls="eza --icons"
 alias la="eza -la --icons"

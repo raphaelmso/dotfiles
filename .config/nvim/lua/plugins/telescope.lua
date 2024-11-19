@@ -26,6 +26,7 @@ return {
 			vim.keymap.set("n", "<leader>fo", "<cmd>Telescope buffers<cr>")
 			vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
 			vim.keymap.set("n", "<leader>fk", "<cmd>Telescope keymaps<CR>")
+			vim.keymap.set("n", "<leader>fn", "<cmd>Telescope notify<CR>")
 		end,
 	},
 }
