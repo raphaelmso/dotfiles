@@ -1,0 +1,78 @@
+
+{
+    "logo": {
+    	"source": "~/.config/fastfetch/ascii/tux.txt",
+        "height": 5,
+        "width": 10,
+        "padding": {
+            "top": 3,
+            "left": 0
+        }
+    },
+    "modules": [
+        "break",
+      
+        {
+            "type": "host",
+            "key": "PC",
+            "keyColor": "cyan"
+        },
+        {
+            "type": "cpu",
+            "key": " CPU",
+            "showPeCoreCount": true,
+            "keyColor": "magenta"
+        },
+        {
+            "type": "gpu",
+            "key": " GPU",
+            "keyColor": "magenta"
+        },
+        
+        {
+            "type": "disk",
+            "key": " Disk",
+            "keyColor": "magenta"
+        },
+        {
+            "type": "memory",
+            "key": " Memory",
+            "keyColor": "magenta"
+        },
+       
+        "break",
+        {
+            "type": "os",
+            "key": "OS",
+            "keyColor": "cyan"
+        },
+        {
+            "type": "kernel",
+            "key": " Kernel",
+            "keyColor": "blue"
+        },
+        {
+            "type": "packages",
+            "key": " Packages",
+            "keyColor": "blue"
+        },
+        {
+            "type": "shell",
+            "key": " Shell",
+            "keyColor": "blue"
+        },
+        {
+            "type": "command",
+            "key": " OS Age",
+            "keyColor": "blue",
+            "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days"
+        },
+        {
+            "type": "uptime",
+            "key": " Uptime",
+            "keyColor": "blue"
+        },
+        "break"
+       
+    ]
+}
