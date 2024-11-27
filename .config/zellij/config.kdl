@@ -246,7 +246,23 @@ load_plugins {
 // Choose the theme that is specified in the themes section.
 // Default: default
 // 
-theme "tokyo-night-dark"
+theme "tokyo-night-tn"
+
+themes {
+    tokyo-night-tn{
+        fg "#9AA2C4"
+        bg "#1A1B26"
+        black "#16161e"
+        red "#C72946"
+        green "#9ECE6A"
+        yellow "#E0AF68"
+        blue "#7AA2F7"
+        magenta "#BB9AF7"
+        cyan "#2AC3DE"
+        white "#9AA2C4"
+        orange "#FF9E64"
+    }
+}
  
 // Choose the base input mode of zellij.
 // Default: normal
