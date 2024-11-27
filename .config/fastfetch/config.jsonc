@@ -51,11 +51,11 @@
             "key": " Kernel",
             "keyColor": "blue"
         },
-        {
-            "type": "packages",
-            "key": " Packages",
-            "keyColor": "blue"
-        },
+        // {
+        //     "type": "packages",
+        //     "key": " Packages",
+        //     "keyColor": "blue"
+        // },
         {
             "type": "shell",
             "key": " Shell",
