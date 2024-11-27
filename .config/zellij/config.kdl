@@ -211,6 +211,21 @@ keybinds clear-defaults=true {
         bind "esc" { UndoRenamePane; SwitchToMode "pane"; }
     }
 }
+themes {
+    tokyo-night-tn {
+        fg 154 162 196
+        bg 26 27 38
+        red 199 41 70
+        green 158 206 106
+        yellow 224 175 104
+        blue 122 162 247
+        magenta 187 154 247
+        orange 255 158 100
+        cyan 42 195 222
+        black 22 22 30
+        white 154 162 196
+    }
+}
 
 // Plugin aliases - can be used to change the implementation of Zellij
 // changing these requires a restart to take effect
@@ -247,22 +262,6 @@ load_plugins {
 // Default: default
 // 
 theme "tokyo-night-tn"
-
-themes {
-    tokyo-night-tn{
-        fg "#9AA2C4"
-        bg "#1A1B26"
-        black "#16161e"
-        red "#C72946"
-        green "#9ECE6A"
-        yellow "#E0AF68"
-        blue "#7AA2F7"
-        magenta "#BB9AF7"
-        cyan "#2AC3DE"
-        white "#9AA2C4"
-        orange "#FF9E64"
-    }
-}
  
 // Choose the base input mode of zellij.
 // Default: normal
