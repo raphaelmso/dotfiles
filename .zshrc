@@ -8,16 +8,14 @@ plug "zsh-users/zsh-syntax-highlighting"
 plug "zap-zsh/vim"
 plug "zap-zsh/completions"
 
-# export
+# export PATH
 export PATH=$PATH:/home/raphael/.local/share/bob/nvim-bin
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 
-
+# export environment variables 
 export EDITOR='nvim'
 export VISUAL='nvim'
-
-export PF_INFO="ascii title os host kernel cpu memory pkgs uptime"
 
 # Binds
 bindkey '^[[A' history-substring-search-up
@@ -28,7 +26,6 @@ bindkey '^[OB' history-substring-search-down
 # Shortcuts
 alias n="nvim"
 alias lg="lazygit"
-alias cd="z"
 alias zl="zellij"
 alias dlv="yt-dlp -P ~/Videos/ytdlp/"
 alias dla="yt-dlp -f m4a -P ~/Videos/ytdlp/"
@@ -38,14 +35,14 @@ alias ff="fastfetch"
 # One liners 
 alias fn='nvim $(fzf --preview "bat --color=always --style=numbers --line-range=:500 {}" )'
 alias fcd='cd $(fdfind . -td | fzf) && eza --icons'
-alias fts='cd $(fdfind . -td | fzf) && tmux new-session'
 
 # Remaps 
 alias cat="bat"
-alias tree="erd -y inverted -H"
+alias cd="z"
 alias l="eza -l --icons"
 alias ls="eza --icons"
 alias la="eza -la --icons"
+alias tree="erd -y inverted -H"
 
 # Folder navigation 
 alias cdn="z ~/.config/nvim/ && eza --icons"
@@ -54,16 +51,6 @@ alias cdg="z ~/Lab/Git/ && eza --icons"
 alias cdd="z ~/dotfiles/ && eza --icons"
 alias cdy="z ~/Downloads/ytdlp && eza --icons"
 alias cdo="z ~/Documents/'Obsidian Vault'/"
-
-# TMUX
-alias t="tmux"
-alias ta="tmux attach"
-alias tad="tmux attach -d -t"
-alias ts="tmux new-session -s"
-alias tl="tmux list-sessions"
-alias tksv="tmux kill-server"
-alias tka="tmux kill-server && rm -rf ~/.local/share/tmux/ressurect"
-alias tkss="tmux kill-session -t"
 
 # Load and initialise completion system
 autoload -Uz compinit
