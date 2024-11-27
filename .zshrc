@@ -29,6 +29,7 @@ bindkey '^[OB' history-substring-search-down
 alias n="nvim"
 alias lg="lazygit"
 alias cd="z"
+alias zl="zellij"
 alias dlv="yt-dlp -P ~/Videos/ytdlp/"
 alias dla="yt-dlp -f m4a -P ~/Videos/ytdlp/"
 alias ws="watch sensors"
