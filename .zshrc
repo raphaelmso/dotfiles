@@ -34,7 +34,7 @@ alias ff="fastfetch"
 
 # One liners 
 alias fn='nvim $(fzf --preview "bat --color=always --style=numbers --line-range=:500 {}" )'
-alias fcd='cd $(fdfind . -td | fzf) && eza --icons'
+alias fcd='z $(fdfind . -td | fzf) && eza --icons'
 
 # Remaps 
 alias cat="bat"
@@ -42,7 +42,9 @@ alias cd="z"
 alias l="eza -l --icons"
 alias ls="eza --icons"
 alias la="eza -la --icons"
-alias tree="erd -y inverted -H"
+alias t="erd -y inverted -H"
+alias ta="erd -y inverted -H -. --no-git"
+alias grep="rg"
 
 # Folder navigation 
 alias cdn="z ~/.config/nvim/ && eza --icons"
