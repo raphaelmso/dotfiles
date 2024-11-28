@@ -12,9 +12,9 @@ return {
 					file_ignore_patterns = { "node_modules" },
 					mappings = {
 						i = {
-							["<A-k>"] = actions.move_selection_previous,
-							["<A-j>"] = actions.move_selection_next,
-							["<A-q>"] = actions.send_selected_to_qflist + actions.open_qflist, -- send selected to quickfixlist
+							["<C-k>"] = actions.move_selection_previous,
+							["<C-j>"] = actions.move_selection_next,
+							["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist, -- send selected to quickfixlist
 						},
 					},
 				},
