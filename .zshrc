@@ -25,6 +25,7 @@ bindkey '^[OB' history-substring-search-down
 
 # Shortcuts
 alias n="nvim"
+alias y="yazi"
 alias lg="lazygit"
 alias zl="zellij"
 alias dlv="yt-dlp -P ~/Videos/ytdlp/"
