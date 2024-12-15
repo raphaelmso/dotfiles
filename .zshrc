@@ -16,6 +16,7 @@ export PATH=$HOME/.local/bin:$PATH
 # export environment variables 
 export EDITOR='nvim'
 export VISUAL='nvim'
+export MANPAGER='nvim +Man!'
 
 # Binds
 bindkey '^[[A' history-substring-search-up
@@ -36,6 +37,7 @@ alias ff="fastfetch"
 # One liners 
 alias fn='nvim $(fzf --preview "bat --color=always --style=numbers --line-range=:500 {}" )'
 alias fcd='z $(fdfind . -td | fzf) && eza --icons'
+alias zlr='zellij attach "$(zellij ls | sed '\''s/\x1b\[[0-9;]*m//g'\'' | awk '\''{print $1}'\'' | fzf)"'
 
 # Remaps 
 alias cat="bat"
