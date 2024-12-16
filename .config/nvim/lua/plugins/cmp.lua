@@ -1,86 +1,55 @@
 return {
 	{
-		"L3MON4D3/LuaSnip",
+		"saghen/blink.cmp",
 		lazy = false,
 		dependencies = {
 			"rafamadriz/friendly-snippets",
-			"saadparwaiz1/cmp_luasnip",
 		},
-		config = function()
-			require("luasnip.loaders.from_vscode").lazy_load()
-		end,
-	},
-	{
-		"hrsh7th/cmp-nvim-lsp",
-		lazy = false,
-		config = true,
-	},
-	{
-		"hrsh7th/cmp-path",
-		"hrsh7th/cmp-buffer",
-	},
-	{
-		"hrsh7th/nvim-cmp",
-		lazy = false,
-		config = function()
-			local cmp = require("cmp")
-			local luasnip = require("luasnip")
-			local has_words_before = function()
-				unpack = unpack or table.unpack
-				local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-				return col ~= 0
-					and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-			end
 
-			cmp.setup({
-				window = {
-					documentation = cmp.config.window.bordered(),
-					completion = cmp.config.window.bordered(),
+		version = "v0.*",
+
+		---@module 'blink.cmp'
+		---@type blink.cmp.Config
+		opts = {
+			keymap = {
+				preset = "default",
+
+				["<CR>"] = { "select_and_accept", "fallback" },
+				["<Tab>"] = { "select_next", "fallback" },
+				["<S-Tab>"] = { "select_prev", "fallback" },
+				["<C-j>"] = { "select_next", "fallback" },
+				["<C-k>"] = { "select_prev", "fallback" },
+				["<C-n>"] = { "scroll_documentation_down" },
+				["<C-u>"] = { "scroll_documentation_up" },
+
+				cmdline = {
+					preset = "super-tab",
 				},
-				snippet = {
-					expand = function(args)
-						require("luasnip").lsp_expand(args.body)
+			},
+
+			appearance = {
+				use_nvim_cmp_as_default = true,
+				nerd_font_variant = "mono",
+			},
+
+			snippets = {
+				name = "Snippets",
+				module = "blink.cmp.sources.snippets",
+				opts = {
+					friendly_snippets = true,
+					search_paths = { vim.fn.stdpath("config") .. "/snippets" },
+					global_snippets = { "all" },
+					extended_filetypes = {},
+					ignored_filetypes = {},
+					get_filetype = function(context)
+						return vim.bo.filetype
 					end,
 				},
-				mapping = cmp.mapping.preset.insert({
-					["<C-k>"] = cmp.mapping.select_prev_item(),
-					["<C-j>"] = cmp.mapping.select_next_item(),
-					["<C-b>"] = cmp.mapping.scroll_docs(-4),
-					["<C-w>"] = cmp.mapping.scroll_docs(4),
-					["<C-Space>"] = cmp.mapping.complete(),
-					["<C-e>"] = cmp.mapping.abort(),
-					["<CR>"] = cmp.mapping.confirm({ select = true }),
-
-					["<Tab>"] = cmp.mapping(function(fallback)
-						if cmp.visible() then
-							cmp.select_next_item()
-						elseif luasnip.expand_or_jumpable() then
-							luasnip.expand_or_jump()
-						elseif has_words_before() then
-							cmp.complete()
-						else
-							fallback()
-						end
-					end, { "i", "s" }),
-
-					["<S-Tab>"] = cmp.mapping(function(fallback)
-						if cmp.visible() then
-							cmp.select_prev_item()
-						elseif luasnip.jumpable(-1) then
-							luasnip.jump(-1)
-						else
-							fallback()
-						end
-					end, { "i", "s" }),
-				}),
-				sources = cmp.config.sources({
-					{ name = "nvim_lsp" },
-					{ name = "luasnip" },
-					{ name = "path" },
-				}, {
-					{ name = "buffer" },
-				}),
-			})
-		end,
+				sources = {
+					default = { "lsp", "path", "luasnip", "buffer" },
+				},
+			},
+			opts_extend = { "sources.default" },
+		},
 	},
 }

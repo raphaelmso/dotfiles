@@ -19,7 +19,8 @@ return {
 		"neovim/nvim-lspconfig",
 		config = function()
 			local lspconfig = require("lspconfig")
-			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+			-- local capabilities = require("blink.cmp").default_capabilities()
+            local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
@@ -39,5 +40,5 @@ return {
 			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
 			vim.keymap.set("n", ",", ":lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<cr>")
 		end,
-	},
-}
+        },
+    }
