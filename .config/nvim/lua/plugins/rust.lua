@@ -1,7 +1,6 @@
 return {
 	{
 		"mrcjkb/rustaceanvim",
-		version = "^4", -- Recommended
 		ft = { "rust" },
 		config = function()
 			local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
