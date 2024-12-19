@@ -20,7 +20,7 @@ return {
 				["<C-j>"] = { "select_next", "fallback" },
 				["<C-k>"] = { "select_prev", "fallback" },
 				["<C-n>"] = { "scroll_documentation_down" },
-				["<C-u>"] = { "scroll_documentation_up" },
+				["<C-p>"] = { "scroll_documentation_up" },
 
 				cmdline = {
 					preset = "super-tab",
