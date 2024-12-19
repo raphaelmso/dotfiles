@@ -20,16 +20,16 @@ return {
 				},
 			})
 
-			vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
-			vim.keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>")
-			vim.keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>")
-			vim.keymap.set("n", "<leader>fo", "<cmd>Telescope buffers<cr>")
-			vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
-			vim.keymap.set("n", "<leader>fk", "<cmd>Telescope keymaps<CR>")
-			vim.keymap.set("n", "<leader>fn", "<cmd>Telescope notify<CR>")
+			vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", {desc = "File"})
+			vim.keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", {desc = "String"})
+			vim.keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", {desc = "String under cursor"})
+			vim.keymap.set("n", "<leader>fo", "<cmd>Telescope buffers<cr>", {desc = "Buffers"})
+			vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", {desc = "Help"})
+			vim.keymap.set("n", "<leader>fk", "<cmd>Telescope keymaps<CR>", {desc = "Keymaps"})
+			vim.keymap.set("n", "<leader>fn", "<cmd>Telescope notify<CR>", {desc = "Notifications"})
             vim.keymap.set("n", "<leader>fl", function()
               require("telescope.builtin").live_grep({ search_dirs = { vim.fn.expand("%:p") } })
-            end)
+            end, {desc = "String local"} )
 		end,
 	},
 }

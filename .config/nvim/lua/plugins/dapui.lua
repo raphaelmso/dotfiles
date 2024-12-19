@@ -49,10 +49,9 @@ return {
 			end
 		end
 
-		vim.keymap.set("n", "ç", toggle_jump)
-
-		vim.keymap.set("n", "<leader>dt", ":lua require('dapui').toggle()<cr>")
-		vim.keymap.set("n", "<leader>de", ":lua require('dapui').eval()<cr>")
-		vim.keymap.set("n", "<leader>dr", ":lua for i=1,5 do require('dapui').open({reset = true}) end<cr>")
+		vim.keymap.set("n", "ç", toggle_jump, {desc = "Jump Code / Console"})
+		vim.keymap.set("n", "<leader>dt", ":lua require('dapui').toggle()<cr>", {desc = "Toggle UI"})
+		vim.keymap.set("n", "<leader>de", ":lua require('dapui').eval()<cr>", {desc = "Evaluate Expression"})
+		vim.keymap.set("n", "<leader>dr", ":lua for i=1,5 do require('dapui').open({reset = true}) end<cr>", {desc = "Reset UI"})
 	end,
 }

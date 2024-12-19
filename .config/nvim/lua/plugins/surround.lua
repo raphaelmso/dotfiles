@@ -5,13 +5,13 @@ return {
 		require("mini.surround").setup({
 
 			mappings = {
-				add = "za",
-				delete = "zd",
-				find = "zf",
-				find_left = "zF",
-				highlight = "zh",
-				replace = "zr",
-				update_n_lines = "zn",
+				add = "<leader>za",
+				delete = "<leader>zd",
+				find = "<leader>zf",
+				find_left = "<leader>zF",
+				highlight = "<leader>zh",
+				replace = "<leader>zr",
+				update_n_lines = "<leader>zn",
 
 				suffix_last = "l",
 				suffix_next = "n",
