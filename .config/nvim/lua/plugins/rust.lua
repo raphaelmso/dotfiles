@@ -16,7 +16,7 @@ return {
                         vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to Definition" })
                         vim.keymap.set("n", "K", ":RustLsp hover actions<cr>", { desc = "Hover Actions" })
                         vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = "Go to Implementation" })
-                        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename" })
+                        vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { desc = "Rename" })
                         vim.keymap.set("n", "<leader>ca", ":RustLsp codeAction<cr>", { desc = "Code Actions" })
                         vim.keymap.set("n", "<leader>le", ":RustLsp explainError<cr>", { desc = "Explain Error" })
 
@@ -43,18 +43,15 @@ return {
                             ":lua require('dap').toggle_breakpoint()<cr>",
                             { desc = "Toggle Breakpoint" }
                         )
-                        vim.keymap.set("n", "<F1>", ":RustLsp run<cr><cr>", { desc = "Run" })
-                        vim.keymap.set("n", "<F2>", ":RustLsp runnables<cr>", { desc = "Runnables" })
-                        vim.keymap.set("n", "<F5>", ":RustLsp debug<cr>", { desc = "Debug" })
-                        vim.keymap.set("n", "<F6>", ":RustLsp debuggables<cr>", { desc = "Debuggables" })
-                        vim.keymap.set("n", "<F10>", ":lua require('dap').step_over()<cr>", { desc = "Step Over" })
-                        vim.keymap.set("n", "<F11>", ":lua require('dap').step_into()<cr>", { desc = "Step Into" })
-                        vim.keymap.set("n", "<F12>", ":lua require('dap').step_out()<cr>", { desc = "Step Out" })
+                        vim.keymap.set("n", "<leader>cr", ":RustLsp run<cr><cr>", { desc = "Run Code" })
+                        vim.keymap.set("n", "<leader>cR", ":RustLsp runnables<cr>", { desc = "Runnables" })
+                        vim.keymap.set("n", "<leader>dr", ":RustLsp debug<cr>", { desc = "Run Debug" })
+                        vim.keymap.set("n", "<leader>dR", ":RustLsp debuggables<cr>", { desc = "Debuggables" })
+                        vim.keymap.set("n", "<leader>do", ":lua require('dap').step_over()<cr>", { desc = "Step Over" })
+                        vim.keymap.set("n", "<leader>di", ":lua require('dap').step_into()<cr>", { desc = "Step Into" })
+                        vim.keymap.set("n", "<leader>du", ":lua require('dap').step_out()<cr>", { desc = "Step Out" })
                         vim.keymap.set("n", "<leader>dl", ":lua require('dap').run_last()<cr>", { desc = "Run Last" })
                         vim.keymap.set("n", "<leader>dq", ":lua require('dap').terminate()<cr>", { desc = "Terminate" })
-                        -- vim.keymap.set("n", "<space>ç", function()
-                        -- require("dapui").eval(nil, { enter = true })
-                        -- end) -- thanks TJ DeVries
                     end,
                     default_settings = {
                         ["rust-analyzer"] = {},
