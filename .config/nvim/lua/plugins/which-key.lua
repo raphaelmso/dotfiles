@@ -11,6 +11,7 @@ return {
 		},
 	},
 	opts = {
+        preset = "helix",
 		icons = {
 			mappings = false,
 		},

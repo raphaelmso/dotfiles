@@ -17,7 +17,7 @@ return {
                         vim.keymap.set("n", "K", ":RustLsp hover actions<cr>", { desc = "Hover Actions" })
                         vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = "Go to Implementation" })
                         vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { desc = "Rename" })
-                        vim.keymap.set("n", "<leader>ca", ":RustLsp codeAction<cr>", { desc = "Code Actions" })
+                        vim.keymap.set("n", "<leader>ca", ":RustLsp codeAction<cr>", { desc = "Actions" })
                         vim.keymap.set("n", "<leader>le", ":RustLsp explainError<cr>", { desc = "Explain Error" })
 
                         if client.supports_method("textDocument/formatting") then
