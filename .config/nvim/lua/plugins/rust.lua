@@ -16,9 +16,9 @@ return {
                         vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to Definition" })
                         vim.keymap.set("n", "K", ":RustLsp hover actions<cr>", { desc = "Hover Actions" })
                         vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = "Go to Implementation" })
-                        vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { desc = "Rename" })
+                        vim.keymap.set("n", "<leader>cn", vim.lsp.buf.rename, { desc = "Rename" })
                         vim.keymap.set("n", "<leader>ca", ":RustLsp codeAction<cr>", { desc = "Actions" })
-                        vim.keymap.set("n", "<leader>le", ":RustLsp explainError<cr>", { desc = "Explain Error" })
+                        vim.keymap.set("n", "<leader>ce", ":RustLsp explainError<cr>", { desc = "Explain Error" })
 
                         if client.supports_method("textDocument/formatting") then
                             vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
