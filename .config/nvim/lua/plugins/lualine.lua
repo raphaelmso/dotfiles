@@ -1,6 +1,6 @@
 return {
     "nvim-lualine/lualine.nvim",
-    dependencies = { 'echasnovski/mini.icons', version = false },
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
 
     config = function()
         require("lualine").setup({
@@ -32,7 +32,6 @@ return {
                 lualine_z = {},
             },
 
-            extensions = { "fugitive" },
         })
     end,
 }
