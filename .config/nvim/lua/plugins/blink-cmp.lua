@@ -1,6 +1,9 @@
 return {
     "saghen/blink.cmp",
-    dependencies = "rafamadriz/friendly-snippets",
+    dependencies = {
+        { "rafamadriz/friendly-snippets" },
+        { "folke/tokyonight.nvim" }
+    },
     version = "v0.*",
 
     opts = {
@@ -31,7 +34,7 @@ return {
         },
 
         sources = {
-            default = { "lsp", "path", "snippets", "buffer" },
+            default = { "snippets", "lsp", "path", "buffer" },
             providers = {
                 lazydev = {
                     name = "LazyDev",
