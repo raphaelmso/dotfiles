@@ -4,14 +4,14 @@ return {
         tag = "0.1.5",
         dependencies = {
             { "nvim-lua/plenary.nvim" },
-            { 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release' }
+            { 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release' },
+            { 'nvim-tree/nvim-web-devicons' },
         },
 
         config = function()
             local builtin = require("telescope.builtin")
             local actions = require("telescope.actions")
 
-            require("telescope.themes").get_ivy()
             require('telescope').load_extension('fzf')
             require("telescope").setup({
                 defaults = {
@@ -26,16 +26,17 @@ return {
                 },
             })
 
-            vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "File" })
-            vim.keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "String" })
-            vim.keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "String under cursor" })
-            vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Buffers" })
-            vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { desc = "Help" })
-            vim.keymap.set("n", "<leader>fk", "<cmd>Telescope keymaps<CR>", { desc = "Keymaps" })
-            vim.keymap.set("n", "<leader>fn", "<cmd>Telescope notify<CR>", { desc = "Notifications" })
-            vim.keymap.set("n", "<leader>fl", function()
-                require("telescope.builtin").live_grep({ search_dirs = { vim.fn.expand("%:p") } })
-            end, { desc = "Local string" })
+            vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files theme=ivy<cr>", { desc = "File" })
+            vim.keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep theme=ivy<cr>", { desc = "String" })
+            vim.keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string theme=ivy<cr>",
+                { desc = "String under cursor" })
+            vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers theme=ivy<cr>", { desc = "Buffers" })
+            vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags theme=ivy<cr>", { desc = "Help" })
+            vim.keymap.set("n", "<leader>fk", "<cmd>Telescope keymaps theme=ivy<CR>", { desc = "Keymaps" })
+            vim.keymap.set("n", "<leader>fn", "<cmd>Telescope notify theme=ivy<CR>", { desc = "Notifications" })
+            vim.keymap.set("n", "<leader>fl", "<cmd>Telescope current_buffer_fuzzy_find theme=ivy<cr>",
+                { desc = "Local string" })
+            vim.keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles theme=ivy<CR>", { desc = "Keymaps" })
         end,
     },
 }
