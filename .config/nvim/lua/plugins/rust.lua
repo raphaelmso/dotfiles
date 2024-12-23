@@ -12,14 +12,6 @@ return {
                 },
                 server = {
                     on_attach = function(client, bufnr)
-                        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to Declaration" })
-                        vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to Definition" })
-                        vim.keymap.set("n", "K", ":RustLsp hover actions<cr>", { desc = "Hover Actions" })
-                        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = "Go to Implementation" })
-                        vim.keymap.set("n", "<leader>cn", vim.lsp.buf.rename, { desc = "Rename" })
-                        vim.keymap.set("n", "<leader>ca", ":RustLsp codeAction<cr>", { desc = "Actions" })
-                        vim.keymap.set("n", "<leader>ce", ":RustLsp explainError<cr>", { desc = "Explain Error" })
-
                         if client.supports_method("textDocument/formatting") then
                             vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
                             vim.api.nvim_create_autocmd("BufWritePre", {
@@ -43,6 +35,17 @@ return {
                             ":lua require('dap').toggle_breakpoint()<cr>",
                             { desc = "Toggle Breakpoint" }
                         )
+                        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to Declaration" })
+                        vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to Definition" })
+                        vim.keymap.set("n", "K", ":RustLsp hover actions<cr>", { desc = "Hover Actions" })
+                        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = "Go to Implementation" })
+                        vim.keymap.set("n", "<leader>cn", vim.lsp.buf.rename, { desc = "Rename" })
+                        vim.keymap.set("n", "<leader>ca", ":RustLsp codeAction<cr>", { desc = "Actions" })
+                        vim.keymap.set("n", "<leader>ce", ":RustLsp explainError<cr>", { desc = "Explain Error" })
+                        vim.keymap.set("n", "<leader>cc", ":RustLsp relatedDiagnostics<cr>",
+                            { desc = "Related Diagnostics" })
+
+
                         vim.keymap.set("n", "<leader>cr", ":RustLsp run<cr><cr>", { desc = "Run Code" })
                         vim.keymap.set("n", "<leader>cR", ":RustLsp runnables<cr>", { desc = "Runnables" })
                         vim.keymap.set("n", "<leader>dr", ":RustLsp debug<cr>", { desc = "Run Debug" })
@@ -67,7 +70,7 @@ return {
         "saecki/crates.nvim",
         tag = "stable",
         config = function()
-            require("crates").setup()
+            require("crates").setup({})
         end,
     },
 }
