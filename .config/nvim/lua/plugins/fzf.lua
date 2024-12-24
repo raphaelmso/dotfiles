@@ -11,10 +11,6 @@ return {
                 col = 0.5,
                 border = 'none',
             },
-            builtin = {
-                ["<C-u>"] = "preview-up",
-                ["<C-d>"] = "preview-down",
-            },
             fzf_opts = {
                 ['--layout'] = 'reverse',
             },
