@@ -24,6 +24,8 @@ return {
         vim.keymap.set("n", "<leader>d", "", { desc = "Debug" })
         vim.keymap.set("n", "<leader>f", "", { desc = "Find" })
         vim.keymap.set("n", "<leader>g", "", { desc = "Git" })
+        vim.keymap.set("n", "<leader>gf", "", { desc = "Find" })
+        vim.keymap.set("n", "<leader>gt", "", { desc = "Toggle" })
         vim.keymap.set("n", "<leader>s", "", { desc = "Split" })
         vim.keymap.set("n", "<leader>t", "", { desc = "Diagnostics" })
         vim.keymap.set("n", "<leader>x", "", { desc = "General" })

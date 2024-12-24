@@ -21,8 +21,11 @@ return {
         vim.keymap.set("n", "<leader>fc", fzf.grep_cWORD,
             { desc = "String under cursor" })
         vim.keymap.set("n", "<leader>fb", fzf.buffers, { desc = "Buffers" })
+        vim.keymap.set("n", "<leader>fx", fzf.builtin, { desc = "Builtin" })
         vim.keymap.set("n", "<leader>fh", fzf.helptags, { desc = "Help" })
         vim.keymap.set("n", "<leader>fk", fzf.keymaps, { desc = "Keymaps" })
+        vim.keymap.set("n", "<leader>fq", fzf.quickfix, { desc = "Quickfix" })
+        vim.keymap.set("n", "<leader>fQ", fzf.quickfix_stack, { desc = "Quickfix Stack" })
         vim.keymap.set("n", "<leader>fl", fzf.grep_curbuf,
             { desc = "Local string" })
         vim.keymap.set("n", "<leader>fo", fzf.oldfiles, { desc = "Old Files" })
