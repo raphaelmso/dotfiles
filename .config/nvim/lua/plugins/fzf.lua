@@ -2,30 +2,39 @@ return {
     "ibhagwan/fzf-lua",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-        require("fzf-lua").setup({
-            keymap = {
-                builtin = {
-                    ["<C-u>"] = "preview-up",
-                    ["<C-d>"] = "preview-down",
-                }
-            }
+        local fzf = require("fzf-lua")
+        fzf.setup({
+            winopts = {
+                height = 0.4,
+                width = 1.0,
+                row = 1.0,
+                col = 0.5,
+                border = 'none',
+            },
+            builtin = {
+                ["<C-u>"] = "preview-up",
+                ["<C-d>"] = "preview-down",
+            },
+            fzf_opts = {
+                ['--layout'] = 'reverse',
+            },
         })
 
-        vim.keymap.set("n", "<leader>ff", require("fzf-lua").files, { desc = "File" })
-        vim.keymap.set("n", "<leader>fs", require('fzf-lua').live_grep, { desc = "String" })
-        vim.keymap.set("n", "<leader>fc", require("fzf-lua").grep_cWORD,
+        vim.keymap.set("n", "<leader>ff", fzf.files, { desc = "File" })
+        vim.keymap.set("n", "<leader>fs", fzf.live_grep, { desc = "String" })
+        vim.keymap.set("n", "<leader>fc", fzf.grep_cWORD,
             { desc = "String under cursor" })
-        vim.keymap.set("n", "<leader>fb", require("fzf-lua").buffers, { desc = "Buffers" })
-        vim.keymap.set("n", "<leader>fh", require("fzf-lua").helptags, { desc = "Help" })
-        vim.keymap.set("n", "<leader>fk", require("fzf-lua").keymaps, { desc = "Keymaps" })
-        vim.keymap.set("n", "<leader>fl", require("fzf-lua").grep_curbuf,
+        vim.keymap.set("n", "<leader>fb", fzf.buffers, { desc = "Buffers" })
+        vim.keymap.set("n", "<leader>fh", fzf.helptags, { desc = "Help" })
+        vim.keymap.set("n", "<leader>fk", fzf.keymaps, { desc = "Keymaps" })
+        vim.keymap.set("n", "<leader>fl", fzf.grep_curbuf,
             { desc = "Local string" })
-        vim.keymap.set("n", "<leader>fo", require("fzf-lua").oldfiles, { desc = "Old Files" })
-        vim.keymap.set("n", "<leader>fd", require("fzf-lua").lsp_definitions, { desc = "Definitions" })
-        vim.keymap.set("n", "<leader>fD", require("fzf-lua").lsp_declarations, { desc = "Declarations" })
-        vim.keymap.set("n", "<leader>ft", require("fzf-lua").lsp_typedefs, { desc = "Type Definitions" })
-        vim.keymap.set("n", "<leader>fi", require("fzf-lua").lsp_implementations, { desc = "Implementations" })
-        vim.keymap.set("n", "<leader>fa", require("fzf-lua").lsp_finder, { desc = "All LSP locations" })
+        vim.keymap.set("n", "<leader>fo", fzf.oldfiles, { desc = "Old Files" })
+        vim.keymap.set("n", "<leader>fd", fzf.lsp_definitions, { desc = "Definitions" })
+        vim.keymap.set("n", "<leader>fD", fzf.lsp_declarations, { desc = "Declarations" })
+        vim.keymap.set("n", "<leader>ft", fzf.lsp_typedefs, { desc = "Type Definitions" })
+        vim.keymap.set("n", "<leader>fi", fzf.lsp_implementations, { desc = "Implementations" })
+        vim.keymap.set("n", "<leader>fa", fzf.lsp_finder, { desc = "All LSP locations" })
     end,
 
 }
