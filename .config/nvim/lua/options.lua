@@ -27,4 +27,4 @@ opt.clipboard = "unnamedplus"
 opt.splitright = true
 opt.splitbelow = true
 
-opt.scrolloff = 3
+opt.scrolloff = 5
