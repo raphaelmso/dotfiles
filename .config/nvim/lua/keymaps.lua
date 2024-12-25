@@ -2,7 +2,8 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap
 
-keymap.set("n", "<leader>xh", ":nohl<CR>", { desc = "Clear highlights" })
+keymap.set("n", "<leader>xc", ":nohl<CR>", { desc = "Clear highlights" })
+keymap.set("n", "<leader>xh", ":checkhealth<CR>", { desc = "Check Health" })
 
 keymap.set("n", "x", '"_x', { desc = "Delete character" })
 

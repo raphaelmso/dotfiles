@@ -22,6 +22,7 @@ return {
             { desc = "String under cursor" })
         vim.keymap.set("n", "<leader>fb", fzf.buffers, { desc = "Buffers" })
         vim.keymap.set("n", "<leader>fx", fzf.builtin, { desc = "Builtin" })
+        vim.keymap.set("n", "<leader>fm", fzf.marks, { desc = "Marks" })
         vim.keymap.set("n", "<leader>fh", fzf.helptags, { desc = "Help" })
         vim.keymap.set("n", "<leader>fk", fzf.keymaps, { desc = "Keymaps" })
         vim.keymap.set("n", "<leader>fq", fzf.quickfix, { desc = "Quickfix" })
