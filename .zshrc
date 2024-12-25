@@ -31,8 +31,8 @@ alias nl="nix-env -q"
 alias ni="nix-env -iA"
 alias y="yazi"
 alias gl="lazygit"
-alias zl="zellij"
-alias zls="zellij --session"
+alias zj="zellij"
+alias zjs="zellij --session"
 alias dlv="yt-dlp -P ~/Videos/ytdlp/ --embed-chapters"
 alias dla="yt-dlp -f m4a -P ~/Videos/ytdlp/"
 alias ws="watch sensors"
@@ -41,7 +41,7 @@ alias ff="fastfetch"
 # One liners 
 alias fn='nvim $(fzf --preview "bat --color=always --style=numbers --line-range=:500 {}" )'
 alias fcd='z $(fdfind . -td | fzf) && eza --icons'
-alias zlr='zellij attach "$(zellij ls | sed '\''s/\x1b\[[0-9;]*m//g'\'' | awk '\''{print $1}'\'' | fzf)"'
+alias zjr='zellij attach "$(zellij ls | sed '\''s/\x1b\[[0-9;]*m//g'\'' | awk '\''{print $1}'\'' | fzf)"'
 
 # Remaps 
 alias cat="bat"
