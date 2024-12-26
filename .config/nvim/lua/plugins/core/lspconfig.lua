@@ -70,16 +70,23 @@ return {
                 end,
             })
 
-            local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = "󰋼" }
-            for type, icon in pairs(signs) do
-                local hl = "DiagnosticSign" .. type
-                vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-            end
+            vim.diagnostic.config {
+                virtual_text = false,
+                signs = {
+                    text = {
+                        [vim.diagnostic.severity.ERROR] = "󰅚",
+                        [vim.diagnostic.severity.WARN] = "󰀪",
+                        [vim.diagnostic.severity.HINT] = "󰌶",
+                        [vim.diagnostic.severity.INFO] = "󰋼",
+                    },
+                },
+            }
 
-            vim.keymap.set("n", "<leader>cD", vim.lsp.buf.declaration, { desc = "Go to Declaration" })
-            vim.keymap.set("n", "<leader>cd", vim.lsp.buf.definition, { desc = "Go to Definition" })
-            vim.keymap.set("n", "<leader>ck", vim.lsp.buf.hover, { desc = "Hover Actions" })
-            vim.keymap.set("n", "<leader>ci", vim.lsp.buf.implementation, { desc = "Go to Implementation" })
+            vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to Declaration" })
+            vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to Definition" })
+            vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover Actions" })
+            vim.keymap.set("n", "gI", vim.lsp.buf.implementation, { desc = "Go to Implementation" })
+            vim.keymap.set("n", "gK", function() return vim.lsp.buf.signature_help() end, { desc = "Signature Help" })
             vim.keymap.set("n", "<leader>cn", vim.lsp.buf.rename, { desc = "Rename" })
             vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, { desc = "Format" })
             vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Actions" })
