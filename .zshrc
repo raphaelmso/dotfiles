@@ -69,4 +69,21 @@ eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 eval "$(atuin init zsh)"
 
+if [[ -z "$ZELLIJ" ]]; then
+
+    choice=$(printf "resurrect_session\nhome_session\n.config_session\nroot_session" | fzf --prompt="Choose a command: ")
+
+    if [[ "$choice" == "home_session" ]]; then
+        fcd && zellij
+    elif [[ "$choice" == "resurrect_session" ]]; then
+        zjr
+    elif [[ "$choice" == ".config_session" ]]; then
+        cd ~/.config && fcd && zellij
+    elif [[ "$choice" == "root_session" ]]; then
+        cd / && fcd && zellij
+    else
+        echo "No valid selection made."
+    fi
+fi
+
 fastfetch
