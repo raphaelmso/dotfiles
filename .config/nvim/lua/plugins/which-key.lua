@@ -29,7 +29,7 @@ return {
         vim.keymap.set("n", "<leader>s", "", { desc = "Split" })
         vim.keymap.set("n", "<leader>t", "", { desc = "Diagnostics" })
         vim.keymap.set("n", "<leader>x", "", { desc = "General" })
-        vim.keymap.set("n", "<leader>y", "", { desc = "Yank" })
+        vim.keymap.set("n", "<leader>y", "", { desc = "Yazi" })
         vim.keymap.set("n", "<leader>z", "", { desc = "Surround" })
     end,
 }
