@@ -15,27 +15,30 @@ return {
             ["<S-Tab>"] = { "select_prev", "fallback" },
             ["<C-j>"] = { "select_next", "fallback" },
             ["<C-k>"] = { "select_prev", "fallback" },
-            ["<C-n>"] = { "scroll_documentation_down" },
-            ["<C-p>"] = { "scroll_documentation_up" },
+            ["<C-d>"] = { "scroll_documentation_down" },
+            ["<C-u>"] = { "scroll_documentation_up" },
 
             cmdline = {
                 preset = "super-tab",
             },
         },
-
         completion = {
             menu = {
                 draw = {
                     treesitter = { "lsp" },
+                    columns = {
+                        { "label" },
+                        { "kind_icon", "kind", gap = 1 },
+                    },
                 },
+
             },
             documentation = {
                 auto_show = true,
                 auto_show_delay_ms = 200,
             },
+
         },
-
-
         appearance = {
             use_nvim_cmp_as_default = false,
             nerd_font_variant = "mono",

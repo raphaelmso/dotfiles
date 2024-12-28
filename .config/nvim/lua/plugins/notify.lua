@@ -5,10 +5,15 @@ return {
         config = function()
             local notify = require("mini.notify")
             notify.setup({
+                lsp_progress = {
+                    duration_last = 300,
+                },
                 window = {
                     config = {
                         border = "none"
                     },
+
+                    max_width_share = 0.3,
                     winblend = 0,
                 },
             })
