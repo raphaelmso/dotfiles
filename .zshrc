@@ -57,7 +57,7 @@ alias grep="rg"
 alias cdn="z ~/.config/nvim/ && eza --icons"
 alias cdl="z ~/Lab && eza --icons"
 alias cdg="z ~/Lab/Git/ && eza --icons"
-alias cdd="z ~/dotfiles/ && eza --icons"
+alias cdd="z ~/Dev/dotfiles/ && eza --icons"
 alias cdy="z ~/Downloads/ytdlp && eza --icons"
 alias cdo="z ~/Documents/'Obsidian Vault'/"
 
