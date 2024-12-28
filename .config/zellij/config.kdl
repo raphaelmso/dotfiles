@@ -214,7 +214,7 @@ keybinds clear-defaults=true {
 themes {
     tokyo-night-tn {
         fg 154 162 196
-        bg 26 27 38
+        bg 22 22 30
         red 199 41 70
         green 158 206 106
         yellow 224 175 104
@@ -222,8 +222,8 @@ themes {
         magenta 187 154 247
         orange 255 158 100
         cyan 42 195 222
-        black 22 22 30
-        white 154 162 196
+        black 12 12 20
+        white 90 112 110 
     }
 }
 
