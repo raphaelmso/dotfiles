@@ -28,3 +28,12 @@ opt.splitright = true
 opt.splitbelow = true
 
 opt.scrolloff = 5
+
+vim.api.nvim_create_autocmd("TextYankPost", {
+    callback = function()
+        vim.highlight.on_yank({
+            higroup = "IncSearch",
+            timeout = 100,
+        })
+    end,
+})
