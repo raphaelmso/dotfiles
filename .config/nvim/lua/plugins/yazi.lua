@@ -4,17 +4,17 @@ return {
         event = "VeryLazy",
         keys = {
             {
-                "<leader>yf",
+                "<leader>y",
                 "<cmd>Yazi<cr>",
                 desc = "Current file",
             },
             {
-                "<leader>yd",
+                "<leader>Yd",
                 "<cmd>Yazi cwd<cr>",
                 desc = "Working directory",
             },
             {
-                "<leader>yr",
+                "<leader>Yr",
                 "<cmd>Yazi toggle<cr>",
                 desc = "Resume last session",
             },

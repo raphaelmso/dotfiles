@@ -1,5 +1,4 @@
 return {
-
     {
         "williamboman/mason.nvim",
         config = function()
@@ -30,6 +29,7 @@ return {
                 },
             },
         },
+
         config = function()
             local lspconfig = require("lspconfig")
             local capabilities = require("blink.cmp").get_lsp_capabilities()
@@ -93,7 +93,6 @@ return {
             vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Actions" })
             vim.keymap.set("n", "<leader>ch", ":lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<cr>",
                 { desc = "Toggle Inlay Hints" })
-
 
             vim.keymap.set("n", "<leader>xi", ":LspInfo<cr>", { desc = "LSP Info" })
             vim.keymap.set("n", "<leader>xm", ":Mason<cr>", { desc = "Mason" })

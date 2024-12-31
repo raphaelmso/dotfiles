@@ -27,8 +27,7 @@ bindkey '^[OB' history-substring-search-down
 # Shortcuts
 alias n="nvim"
 alias nz="nvim ~/.zshrc"
-alias nl="nix-env -q"
-alias ni="nix-env -iA"
+alias ne="nix-env"
 alias y="yazi"
 alias gl="lazygit"
 alias zj="zellij"
