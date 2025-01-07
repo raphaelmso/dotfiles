@@ -1,7 +1,6 @@
 return {
     {
         "lewis6991/gitsigns.nvim",
-        "sindrets/diffview.nvim",
         config = function()
             local gitsigns = require('gitsigns')
             local fzf = require("fzf-lua")
@@ -24,4 +23,7 @@ return {
             vim.keymap.set("n", "<leader>gfs", fzf.git_stash, { desc = "Stash" })
         end,
     },
+    {
+        "sindrets/diffview.nvim",
+    }
 }
