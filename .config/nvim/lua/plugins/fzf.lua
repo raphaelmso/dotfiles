@@ -5,11 +5,10 @@ return {
         local fzf = require("fzf-lua")
         fzf.setup({
             winopts = {
-                height = 0.4,
+                height = 0.45,
                 width = 1.0,
                 row = 1.0,
                 col = 0.5,
-                border = 'none',
             },
             fzf_opts = {
                 ['--layout'] = 'reverse',
