@@ -8,6 +8,9 @@ return {
 
             vim.keymap.set('n', '<leader>gb', function() gitsigns.blame_line { full = true } end, { desc = "Blame Line" })
             vim.keymap.set('n', '<leader>gB', gitsigns.toggle_current_line_blame, { desc = "Toggle Current Line Blame" })
+            vim.keymap.set('n', '<leader>ghs', gitsigns.stage_hunk, { desc = "Stage Hunk" })
+            vim.keymap.set('n', '<leader>ghr', gitsigns.reset_hunk, { desc = "Reset Hunk" })
+            vim.keymap.set('n', '<leader>ghp', gitsigns.preview_hunk_inline, { desc = "Preview Hunk" })
             vim.keymap.set('n', '<leader>gdo', ":DiffviewOpen<CR>", { desc = "Diff View Open" })
             vim.keymap.set('n', '<leader>gdc', ":DiffviewClose<CR>", { desc = "Diff View Close" })
             vim.keymap.set('n', '<leader>gdh', ":DiffviewFileHistory<CR>", { desc = "Diff View File History" })

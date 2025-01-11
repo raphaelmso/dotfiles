@@ -94,9 +94,10 @@ return {
             vim.keymap.set("n", "<leader>ch", ":lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<cr>",
                 { desc = "Toggle Inlay Hints" })
 
-            vim.keymap.set("n", "<leader>xi", ":LspInfo<cr>", { desc = "LSP Info" })
-            vim.keymap.set("n", "<leader>xm", ":Mason<cr>", { desc = "Mason" })
-            vim.keymap.set("n", "<leader>xl", ":Lazy<cr>", { desc = "Lazy" })
+            vim.keymap.set("n", "<leader>ni", ":LspInfo<cr>", { desc = "LSP Info" })
+            vim.keymap.set("n", "<leader>nm", ":Mason<cr>", { desc = "Mason" })
+            vim.keymap.set("n", "<leader>nl", ":Lazy<cr>", { desc = "Lazy" })
         end,
     },
 }
+
