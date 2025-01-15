@@ -5,6 +5,8 @@ local keymap = vim.keymap
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear highlights" })
 keymap.set("n", "<leader>nc", ":checkhealth<CR>", { desc = "Check Health" })
 
+keymap.set("n", "<leader>md", ":delmarks ", { desc = "Delete Marks" })
+
 keymap.set("n", "x", '"_x', { desc = "Delete character" })
 
 keymap.set("n", "<leader>=", "<C-a>", { desc = "Increase number" })
