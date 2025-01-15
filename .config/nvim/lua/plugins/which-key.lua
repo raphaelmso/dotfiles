@@ -25,11 +25,12 @@ return {
         vim.keymap.set("n", "<leader>f", "", { desc = "Find" })
         vim.keymap.set("n", "<leader>g", "", { desc = "Git" })
         vim.keymap.set("n", "<leader>gf", "", { desc = "Find" })
-        vim.keymap.set("n", "<leader>gt", "", { desc = "Toggle" })
+        vim.keymap.set("n", "<leader>gh", "", { desc = "Hunk" })
+        vim.keymap.set("n", "<leader>gd", "", { desc = "Diff" })
         vim.keymap.set("n", "<leader>s", "", { desc = "Split" })
         vim.keymap.set("n", "<leader>t", "", { desc = "Diagnostics" })
-        vim.keymap.set("n", "<leader>x", "", { desc = "General" })
-        vim.keymap.set("n", "<leader>Y", "", { desc = "Yazi" })
+        vim.keymap.set("n", "<leader>n", "", { desc = "General" })
+        vim.keymap.set("n", "<leader>E", "", { desc = "Yazi" })
         vim.keymap.set("n", "<leader>z", "", { desc = "Surround" })
     end,
 }
