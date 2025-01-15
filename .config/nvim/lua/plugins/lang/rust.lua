@@ -44,12 +44,16 @@ return {
                         vim.keymap.set("n", "<leader>ce", ":RustLsp explainError<cr>", { desc = "Explain Error" })
                         vim.keymap.set("n", "<leader>cc", ":RustLsp relatedDiagnostics<cr>",
                             { desc = "Related Diagnostics" })
+                        vim.keymap.set("n", "<leader>cd", ":RustLsp renderDiagnostic current<cr>", { desc = "Render Diagnostics (Current)" })
+                        vim.keymap.set("n", "<leader>cD", ":RustLsp renderDiagnostic<cr>", { desc = "Render Diagnostics (Cycle)" })
 
 
                         vim.keymap.set("n", "<leader>cr", ":RustLsp run<cr><cr>", { desc = "Run Code" })
                         vim.keymap.set("n", "<leader>cR", ":RustLsp runnables<cr>", { desc = "Runnables" })
                         vim.keymap.set("n", "<leader>dr", ":RustLsp debug<cr>", { desc = "Run Debug" })
                         vim.keymap.set("n", "<leader>dR", ":RustLsp debuggables<cr>", { desc = "Debuggables" })
+                        vim.keymap.set("n", "<leader>ct", ":RustLsp testables<cr>", { desc = "Testables" })
+                        vim.keymap.set("n", "<leader>cl", ":RustLsp! testables<cr>", { desc = "Last Test" })
                         vim.keymap.set("n", "<leader>do", ":lua require('dap').step_over()<cr>", { desc = "Step Over" })
                         vim.keymap.set("n", "<leader>di", ":lua require('dap').step_into()<cr>", { desc = "Step Into" })
                         vim.keymap.set("n", "<leader>du", ":lua require('dap').step_out()<cr>", { desc = "Step Out" })
@@ -63,6 +67,7 @@ return {
                 dap = {},
             }
             vim.g.rustaceanvim.dap.autoload_configurations = true
+            vim.g.rustaceanvim.tools.test_executor = "background"
         end,
     },
 
