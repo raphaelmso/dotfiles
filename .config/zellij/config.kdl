@@ -213,17 +213,17 @@ keybinds clear-defaults=true {
 }
 themes {
     tokyo-night-tn {
-        fg 154 162 196
-        bg 22 22 30
-        red 199 41 70
-        green 158 206 106
-        yellow 224 175 104
-        blue 122 162 247
-        magenta 187 154 247
-        orange 255 158 100
-        cyan 42 195 222
-        black 12 12 20
-        white 90 112 110 
+        fg "#9AA2C4"
+        bg "#16161E"
+        red "#8B1C30"
+        green "#9ECE6A"
+        yellow "#E0AF68"
+        blue "#7AA2F7"
+        magenta "#BB9AF7"
+        orange "#FF9E64"
+        cyan "#2AC3DE"
+        black "#0C0C14"
+        white "#5A706E"
     }
     carbonfox {
         bg "#2a2a2a"
