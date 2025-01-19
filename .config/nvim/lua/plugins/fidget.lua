@@ -8,5 +8,6 @@ return {
                 },
             },
         })
+        vim.keymap.set("n", "<leader>nf", ":Fidget clear ", {desc = "Fidget Clear"})
     end,
 }
