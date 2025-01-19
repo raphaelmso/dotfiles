@@ -6,8 +6,8 @@ return {
 
     opts = {
         animate = { enabled = false },
-        bigfile = { enabled = false },
-        bufdelete = { enabled = false },
+        bigfile = { enabled = true },
+        bufdelete = { enabled = true },
         dashboard = { enabled = false },
         debug = { enabled = false },
         dim = { enabled = false },
@@ -20,7 +20,7 @@ return {
                 enabled = false,
             }
         },
-        input = { enabled = false },
+        input = { enabled = true },
         layout = { enabled = false },
         lazygit = { enabled = true },
         meta = { enabled = false },
@@ -42,35 +42,29 @@ return {
         util = { enabled = true },
         win = { enabled = false },
         words = { enabled = false },
-        zen = { enabled = false },
+        zen = { enabled = false, },
 
     },
     keys = {
-        { "<leader>:",   function() Snacks.picker.command_history() end, desc = "Command History" },
-        -- find
         { "<leader>fb",  function() Snacks.picker.buffers() end,         desc = "Buffers" },
         { "<leader>ff",  function() Snacks.picker.files() end,           desc = "Find Files" },
         { "<leader>fr",  function() Snacks.picker.recent() end,          desc = "Recent" },
-        -- git
-        { "<leader>fgf", function() Snacks.picker.git_files() end,       desc = "Find Git Files" },
+        { "<leader>fgf", function() Snacks.picker.git_files() end,       desc = "Git Files" },
         { "<leader>fgl", function() Snacks.picker.git_log() end,         desc = "Git Log" },
         { "<leader>fgs", function() Snacks.picker.git_status() end,      desc = "Git Status" },
-        -- Grep
         { "<leader>fl",  function() Snacks.picker.lines() end,           desc = "Buffer Lines" },
         { "<leader>fB",  function() Snacks.picker.grep_buffers() end,    desc = "Grep Open Buffers" },
         { "<leader>fs",  function() Snacks.picker.grep() end,            desc = "Grep" },
         { "<leader>fw",  function() Snacks.picker.grep_word() end,       desc = "Visual selection or word", mode = { "n", "x" } },
-        -- search
-        { '<leader>f"',  function() Snacks.picker.registers() end,       desc = "Registers" },
-        { "<leader>fc",  function() Snacks.picker.command_history() end, desc = "Command History" },
-        { "<leader>fC",  function() Snacks.picker.commands() end,        desc = "Commands" },
+        { "<leader>fC",  function() Snacks.picker.command_history() end, desc = "Command History" },
+        { "<leader>fc",  function() Snacks.picker.commands() end,        desc = "Commands" },
         { "<leader>fd",  function() Snacks.picker.diagnostics() end,     desc = "Diagnostics" },
         { "<leader>fh",  function() Snacks.picker.help() end,            desc = "Help Pages" },
-        { "<leader>sj",  function() Snacks.picker.jumps() end,           desc = "Jumps" },
+        { "<leader>fj",  function() Snacks.picker.jumps() end,           desc = "Jumps" },
         { "<leader>fk",  function() Snacks.picker.keymaps() end,         desc = "Keymaps" },
         { "<leader>fm",  function() Snacks.picker.marks() end,           desc = "Marks" },
-        { "<leader>sq",  function() Snacks.picker.qflist() end,          desc = "Quickfix List" },
-        -- LSP
+        { "<leader>fq",  function() Snacks.picker.qflist() end,          desc = "Quickfix List" },
+        { "<leader>fS",  function() Snacks.picker.lsp_symbols() end,     desc = "LSP Symbols" },
 
         { "<leader>fn",  function() Snacks.notifier.show_history() end,  desc = "Notification History" },
         { "<leader>gl",  function() Snacks.lazygit() end,                desc = "Lazygit" },
