@@ -216,13 +216,13 @@ themes {
         fg "#9AA2C4"
         bg "#16161E"
         red "#8B1C30"
-        green "#9ECE6A"
+        green "#7AA2F7"
         yellow "#E0AF68"
         blue "#7AA2F7"
         magenta "#BB9AF7"
-        orange "#FF9E64"
+        orange "#9ECE6A"
         cyan "#2AC3DE"
-        black "#0C0C14"
+        black "#16161E"
         white "#5A706E"
     }
     carbonfox {
