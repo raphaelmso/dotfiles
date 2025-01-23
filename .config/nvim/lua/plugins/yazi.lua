@@ -6,7 +6,7 @@ return {
             {
                 "<leader>e",
                 "<cmd>Yazi<cr>",
-                desc = "Current file",
+                desc = "Yazi",
             },
             {
                 "<leader>Ed",
