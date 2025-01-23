@@ -215,7 +215,7 @@ themes {
     tokyo-night-tn {
         fg "#9AA2C4"
         bg "#16161E"
-        red "#8B1C30"
+        red "#16161E"
         green "#7AA2F7"
         yellow "#E0AF68"
         blue "#7AA2F7"
