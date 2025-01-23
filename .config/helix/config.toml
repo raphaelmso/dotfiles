@@ -1,0 +1,22 @@
+theme = "tokyonight"
+
+[editor]
+bufferline = "always"
+line-number = "relative"
+mouse = false
+end-of-line-diagnostics = "hint"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+[editor.inline-diagnostics]
+cursor-line = "error"
+
+[keys.normal]
+C-s = ":w"
+"'" = "save_selection"
