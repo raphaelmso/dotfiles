@@ -38,7 +38,7 @@ return {
                         vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to Declaration" })
                         vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to Definition" })
                         vim.keymap.set("n", "K", ":RustLsp hover actions<cr>", { desc = "Hover Actions" })
-                        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = "Go to Implementation" })
+                        vim.keymap.set("n", "gI", vim.lsp.buf.implementation, { desc = "Go to Implementation" })
                         vim.keymap.set("n", "<leader>cn", vim.lsp.buf.rename, { desc = "Rename" })
                         vim.keymap.set("n", "<leader>ca", ":RustLsp codeAction<cr>", { desc = "Actions" })
                         vim.keymap.set("n", "<leader>ce", ":RustLsp explainError<cr>", { desc = "Explain Error" })
