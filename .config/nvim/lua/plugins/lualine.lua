@@ -28,7 +28,7 @@ return {
                     "diff",
                     "diagnostics",
                 },
-                lualine_x = { "encoding", "fileformat", "progress", "location" },
+                lualine_x = { "progress", "location" },
                 lualine_y = {},
                 lualine_z = {},
             },
@@ -36,6 +36,3 @@ return {
         })
     end,
 }
-
-
-
