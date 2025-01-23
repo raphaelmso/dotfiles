@@ -14,9 +14,9 @@ export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 
 # export environment variables 
-export EDITOR='nvim'
-export VISUAL='nvim'
-export MANPAGER='nvim +Man!'
+export EDITOR='hx'
+export VISUAL='hx'
+export MANPAGER='hx +Man!'
 
 # Binds
 bindkey '^[[A' history-substring-search-up
@@ -25,8 +25,7 @@ bindkey '^[[B' history-substring-search-down
 bindkey '^[OB' history-substring-search-down
 
 # Shortcuts
-alias n="nvim"
-alias nz="nvim ~/.zshrc"
+alias hz="hx ~/.zshrc"
 alias ne="nix-env"
 alias e="yazi"
 alias gl="lazygit"
@@ -38,7 +37,7 @@ alias ws="watch sensors"
 alias ff="fastfetch"
 
 # One liners 
-alias fn='nvim $(fzf --preview "bat --color=always --style=numbers --line-range=:500 {}" )'
+alias fn='hx $(fzf --preview "bat --color=always --style=numbers --line-range=:500 {}" )'
 alias fcd='z $(fdfind . -td | fzf) && eza --icons'
 alias zjr='zellij attach "$(zellij ls | sed '\''s/\x1b\[[0-9;]*m//g'\'' | awk '\''{print $1}'\'' | fzf)"'
 
@@ -54,6 +53,7 @@ alias grep="rg"
 
 # Folder navigation 
 alias cdn="z ~/.config/nvim/ && eza --icons"
+alias cdh="z ~/.config/helix/ && eza --icons"
 alias cdl="z ~/Lab && eza --icons"
 alias cdg="z ~/Lab/Git/ && eza --icons"
 alias cdd="z ~/Dev/dotfiles/ && eza --icons"
