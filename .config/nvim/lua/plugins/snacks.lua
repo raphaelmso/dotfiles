@@ -14,6 +14,7 @@ return {
                 enabled = false,
             }
         },
+        gitbrowse = {enabled = true},
         input = { enabled = true },
         lazygit = { enabled = true },
         notifier = { enabled = true },
@@ -26,6 +27,7 @@ return {
 
     },
     keys = {
+        { "<leader>go",  function() Snacks.gitbrowse() end,  desc = "Browse" },
         { "<leader>Fn",  function() Snacks.notifier.show_history() end,  desc = "Notification History" },
         { "<leader>gl",  function() Snacks.lazygit() end,                desc = "Lazygit" },
         { "<leader>nn",  function() Snacks.notifier.hide() end,          desc = "Dismiss All Notifications" },
