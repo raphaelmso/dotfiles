@@ -6,10 +6,8 @@ return {
             local fzf = require("fzf-lua")
             gitsigns.setup()
 
-            vim.keymap.set('n', '<leader>gs', gitsigns.stage_hunk, { desc = "Stage Hunk" })
-            vim.keymap.set('n', '<leader>gr', gitsigns.reset_hunk, { desc = "Reset Hunk" })
-            vim.keymap.set('n', '<leader>gb', function() gitsigns.blame_line { full = true } end, { desc = "Blame Line" })
-            vim.keymap.set('n', '<leader>gB', gitsigns.toggle_current_line_blame, { desc = "Toggle Current Line Blame" })
+            vim.keymap.set('n', '<leader>Gb', function() gitsigns.blame_line { full = true } end, { desc = "Blame Line" })
+            vim.keymap.set('n', '<leader>GB', gitsigns.toggle_current_line_blame, { desc = "Toggle Current Line Blame" })
 
             vim.keymap.set("n", "<leader>gff", fzf.git_files, { desc = "Files" })
             vim.keymap.set("n", "<leader>gfs", fzf.git_status, { desc = "Status" })
@@ -22,6 +20,8 @@ return {
         end,
     },
     {
-        "sindrets/diffview.nvim",
+        "tpope/vim-fugitive",
+        config = function ()
+        end
     }
 }
