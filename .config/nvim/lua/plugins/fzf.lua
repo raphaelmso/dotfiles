@@ -14,7 +14,6 @@ return {
         vim.keymap.set("n", "<leader>o", fzf.buffers, { desc = "Buffers" })
         vim.keymap.set("n", "<leader>Fc", fzf.grep_cWORD, { desc = "String under cursor" })
         vim.keymap.set("n", "<leader>Fx", fzf.builtin, { desc = "Builtin" })
-        vim.keymap.set("n", "<leader>Fm", fzf.marks, { desc = "Marks" })
         vim.keymap.set("n", "<leader>Fh", fzf.helptags, { desc = "Help" })
         vim.keymap.set("n", "<leader>Fk", fzf.keymaps, { desc = "Keymaps" })
         vim.keymap.set("n", "<leader>Fq", fzf.quickfix, { desc = "Quickfix" })
