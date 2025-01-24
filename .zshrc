@@ -19,7 +19,7 @@ export VISUAL='nvim'
 export MANPAGER='nvim +Man!'
 
 # Shortcuts
-alias n="nvim ~/.zshrc"
+alias n="nvim"
 alias nz="nvim ~/.zshrc"
 alias ne="nix-env"
 alias e="yazi"
