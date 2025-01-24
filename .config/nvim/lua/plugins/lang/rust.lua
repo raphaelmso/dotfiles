@@ -50,13 +50,14 @@ return {
 
                         vim.keymap.set("n", "<leader>cr", ":RustLsp run<cr><cr>", { desc = "Run Code" })
                         vim.keymap.set("n", "<leader>cR", ":RustLsp runnables<cr>", { desc = "Runnables" })
-                        vim.keymap.set("n", "<leader>dr", ":RustLsp debug<cr>", { desc = "Run Debug" })
-                        vim.keymap.set("n", "<leader>dR", ":RustLsp debuggables<cr>", { desc = "Debuggables" })
                         vim.keymap.set("n", "<leader>ct", ":RustLsp testables<cr>", { desc = "Testables" })
                         vim.keymap.set("n", "<leader>cl", ":RustLsp! testables<cr>", { desc = "Last Test" })
-                        vim.keymap.set("n", "<leader>do", ":lua require('dap').step_over()<cr>", { desc = "Step Over" })
-                        vim.keymap.set("n", "<leader>di", ":lua require('dap').step_into()<cr>", { desc = "Step Into" })
-                        vim.keymap.set("n", "<leader>du", ":lua require('dap').step_out()<cr>", { desc = "Step Out" })
+
+                        vim.keymap.set("n", "<leader>dr", ":RustLsp debug<cr>", { desc = "Run Debug" })
+                        vim.keymap.set("n", "<leader>dR", ":RustLsp debuggables<cr>", { desc = "Debuggables" })
+                        vim.keymap.set("n", "<F12>", ":lua require('dap').step_over()<cr>", { desc = "Step Over" })
+                        vim.keymap.set("n", "<F11>", ":lua require('dap').step_into()<cr>", { desc = "Step Into" })
+                        vim.keymap.set("n", "<F10>", ":lua require('dap').step_out()<cr>", { desc = "Step Out" })
                         vim.keymap.set("n", "<leader>dl", ":lua require('dap').run_last()<cr>", { desc = "Run Last" })
                         vim.keymap.set("n", "<leader>dq", ":lua require('dap').terminate()<cr>", { desc = "Terminate" })
                     end,
