@@ -16,6 +16,10 @@ return {
                     bg = "#1a1b26",
                 },
 
+            },
+            options = {
+                buffer_close_icon = '',
+                close_icon = '',
             }
         })
         vim.keymap.set('n', '<leader>nb', ':BufferLinePickClose<CR>', { desc = "Close Buffer" })
