@@ -1,5 +1,6 @@
 return {
     "j-hui/fidget.nvim",
+    event = "VeryLazy",
     config = function()
         require("fidget").setup({
             notification = {
@@ -8,6 +9,6 @@ return {
                 },
             },
         })
-        vim.keymap.set("n", "<leader>nf", ":Fidget clear ", {desc = "Clear Fidget"})
+        vim.keymap.set("n", "<leader>nf", ":Fidget clear<CR>", {desc = "Clear Fidget"})
     end,
 }
