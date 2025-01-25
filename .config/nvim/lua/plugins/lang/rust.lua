@@ -59,7 +59,7 @@ return {
                         vim.keymap.set("n", "<F11>", ":lua require('dap').step_into()<cr>", { desc = "Step Into" })
                         vim.keymap.set("n", "<F10>", ":lua require('dap').step_out()<cr>", { desc = "Step Out" })
                         vim.keymap.set("n", "<leader>dl", ":lua require('dap').run_last()<cr>", { desc = "Run Last" })
-                        vim.keymap.set("n", "<leader>dq", ":lua require('dap').terminate()<cr>", { desc = "Terminate" })
+                        vim.keymap.set("n", "<leader>dt", ":lua require('dap').terminate()<cr>", { desc = "Terminate" })
                     end,
                     default_settings = {
                         ["rust-analyzer"] = {},
