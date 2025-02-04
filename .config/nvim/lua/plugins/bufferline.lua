@@ -1,5 +1,6 @@
 return {
     "akinsho/bufferline.nvim",
+    event = "VeryLazy",
     config = function()
         require("bufferline").setup({
             highlights = {
@@ -20,6 +21,9 @@ return {
             options = {
                 buffer_close_icon = '',
                 close_icon = '',
+                indicator = {
+                    style = "none"
+                },
             }
         })
         vim.keymap.set('n', '<leader>nb', ':BufferLinePickClose<CR>', { desc = "Close Buffer" })

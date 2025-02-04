@@ -1,6 +1,7 @@
 return {
     {
         "williamboman/mason.nvim",
+        event = "VeryLazy",
         config = function()
             require("mason").setup()
         end,
@@ -8,6 +9,10 @@ return {
 
     {
         "williamboman/mason-lspconfig.nvim",
+        event = "VeryLazy",
+        dependencies = {
+            'williamboman/mason.nvim'
+        },
         config = function()
             require("mason-lspconfig").setup({
                 ensure_installed = { "lua_ls" },

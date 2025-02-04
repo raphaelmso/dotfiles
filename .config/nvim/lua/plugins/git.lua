@@ -1,6 +1,7 @@
 return {
     {
         "lewis6991/gitsigns.nvim",
+        event = "VeryLazy",
         config = function()
             local gitsigns = require('gitsigns')
             local fzf = require("fzf-lua")
