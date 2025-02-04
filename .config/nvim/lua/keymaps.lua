@@ -4,6 +4,7 @@ local keymap = vim.keymap
 
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear highlights" })
 keymap.set("n", "<leader>nc", ":checkhealth<CR>", { desc = "Check Health" })
+keymap.set("n", "<leader>nw", ":fclose<CR>", { desc = "Close Floating Windows" })
 
 keymap.set("n", "x", '"_x', { desc = "Delete character" })
 
@@ -21,9 +22,6 @@ keymap.set("n", "<leader>si", "<C-w>>", { desc = "Increase Horizontal" })
 keymap.set("n", "<leader>sd", "<C-w><", { desc = "Decrease Horizontal" })
 keymap.set("n", "<leader>sk", "<C-w>+", { desc = "Increase Vertical" })
 keymap.set("n", "<leader>sj", "<C-w>-", { desc = "Decrease Vertical" })
-
-keymap.set("n", "<leader>k", "<C-u>zz", { desc = "Jump up" })
-keymap.set("n", "<leader>j", "<C-d>zz", { desc = "Jump down" })
 
 
 keymap.set('n', '<C-h>', '<C-w>h', { desc = "Left Buffer", noremap = true, silent = true })
