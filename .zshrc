@@ -54,6 +54,17 @@ alias cdd="z ~/Dev/dotfiles/ && eza --icons"
 alias cdy="z ~/Downloads/ytdlp && eza --icons"
 alias cdo="z ~/Documents/'Obsidian Vault'/"
 
+# Tmux
+alias t="tmux"
+alias ta="tmux attach"
+alias tad="tmux attach -d -t"
+alias ts="tmux new-session -s"
+alias tl="tmux list-sessions"
+alias tksv="tmux kill-server"
+alias tka="tmux kill-server && rm -rf ~/.local/share/tmux/ressurect"
+alias tkss="tmux kill-session -t"
+alias tjr='tmux attach "$(tmux ls | sed '\''s/\x1b\[[0-9;]*m//g'\'' | awk '\''{print $0}'\'' | fzf)"'
+
 # Load and initialise completion system
 autoload -Uz compinit
 compinit
