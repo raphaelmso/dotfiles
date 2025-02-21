@@ -42,8 +42,8 @@ alias cd="z"
 alias l="eza -l --icons"
 alias ls="eza --icons"
 alias la="eza -la --icons"
-alias t="erd -y inverted -H"
-alias ta="erd -y inverted -H -. --no-git"
+alias erd="erd -y inverted -H"
+alias erda="erd -y inverted -H -. --no-git"
 alias grep="rg"
 
 # Folder navigation 
