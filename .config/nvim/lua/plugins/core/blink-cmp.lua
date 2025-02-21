@@ -18,10 +18,6 @@ return {
             ["<C-k>"] = { "select_prev", "fallback" },
             ["<C-d>"] = { "scroll_documentation_down" },
             ["<C-u>"] = { "scroll_documentation_up" },
-
-            cmdline = {
-                preset = "super-tab",
-            },
         },
         completion = {
             menu = {
