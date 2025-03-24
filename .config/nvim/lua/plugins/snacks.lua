@@ -2,27 +2,56 @@ return {
     "folke/snacks.nvim",
 
     priority = 1000,
+
     lazy = false,
     ---@type snacks.Config
 
     opts = {
         bigfile = { enabled = true },
         bufdelete = { enabled = true },
+        dashboard = {
+            enabled = true,
+            preset = {
+                header = [[]],
+            },
+            sections = {
+                { section = "header" },
+            }
+        },
+        explorer = { enabled = true },
         health = { enabled = true },
-        image = {enabled = true},
+        image = { enabled = true },
         indent = {
             enabled = true,
             animate = {
                 enabled = false,
             }
         },
+        git = { enabled = true },
         gitbrowse = { enabled = true },
         input = { enabled = true },
         lazygit = { enabled = true },
         notifier = { enabled = true },
         notify = { enabled = true },
-        picker = { enabled = true },
+        picker = {
+            enabled = true,
+            sources = {
+                explorer = {
+                    layout = {
+                        layout = {
+                            position = "right"
+                        }
+                    },
+                },
+            },
+        },
         util = { enabled = true },
+        zen = {
+            enabled = true,
+            toggles = {
+                diagnostics = false,
+            },
+        }
 
     },
     keys = {
@@ -31,12 +60,13 @@ return {
         { "<leader>fn",      function() Snacks.notifier.show_history() end,       desc = "Notification History" },
         { "<leader>gl",      function() Snacks.lazygit() end,                     desc = "Lazygit" },
         { "<leader>nn",      function() Snacks.notifier.hide() end,               desc = "Dismiss All Notifications" },
+        { "<leader>e",       function() Snacks.picker.explorer() end,             desc = "Explorer" },
 
         { "<leader>o",       function() Snacks.picker.files() end,                desc = "File" },
-        { "<leader>r",       function() Snacks.picker.grep() end,                 desc = "String" },
+        { "<leader>fs",      function() Snacks.picker.grep() end,                 desc = "String" },
         { "<leader><space>", function() Snacks.picker.buffers() end,              desc = "Buffers" },
-        { "<leader>fs",      function() Snacks.picker.grep_word() end,            desc = "String under cursor" },
-        { "<leader>fx",      function() Snacks.picker.picker() end,               desc = "Builtin" },
+        { "<leader>fw",      function() Snacks.picker.grep_word() end,            desc = "Word under cursor" },
+        { "<leader>fx",      function() Snacks.picker() end,                      desc = "Builtin" },
         { "<leader>fh",      function() Snacks.picker.help() end,                 desc = "Help" },
         { "<leader>fk",      function() Snacks.picker.keymaps() end,              desc = "Keymaps" },
         { "<leader>fq",      function() Snacks.picker.qflist() end,               desc = "Quickfix" },
@@ -44,6 +74,7 @@ return {
         { "<leader>fo",      function() Snacks.picker.recent() end,               desc = "Old Files" },
         { "<leader>fd",      function() Snacks.picker.lsp_definitions() end,      desc = "Definitions" },
         { "<leader>fD",      function() Snacks.picker.lsp_declarations() end,     desc = "Declarations" },
+        { "<leader>fe",      function() Snacks.picker.icons() end,                desc = "Icons" },
         { "<leader>ft",      function() Snacks.picker.lsp_type_definitions() end, desc = "Type Definitions" },
         { "<leader>fi",      function() Snacks.picker.lsp_implementations() end,  desc = "Implementations" },
         { "<leader>fa",      function() Snacks.picker.lsp_symbols() end,          desc = "LSP Symbols" },
@@ -59,6 +90,6 @@ return {
         { "<leader>gfd",     function() Snacks.picker.git_diff() end,             desc = "Git Diff (Hunks)" },
         { "<leader>gfb",     function() Snacks.picker.git_log_file() end,         desc = "Git Log Buffer" },
 
-
+        { "<leader>nz",       function() Snacks.zen() end,             desc = "Zen Mode" },
     }
 }

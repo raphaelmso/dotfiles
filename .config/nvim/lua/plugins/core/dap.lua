@@ -1,20 +1,18 @@
 return {
     {
         "mfussenegger/nvim-dap",
-        event = "VeryLazy",
+        ft = { "rust", "c" },
     },
 
     {
         "theHamsta/nvim-dap-virtual-text",
-        event = "VeryLazy",
-        config = function()
-            require("nvim-dap-virtual-text").setup({})
-        end,
+        ft = { "rust", "c" },
+        opts = {},
     },
 
     {
         "rcarriga/nvim-dap-ui",
-        event = "VeryLazy",
+        ft = { "rust", "c" },
         dependencies = { "nvim-neotest/nvim-nio" },
 
         config = function()
@@ -61,9 +59,12 @@ return {
             end
 
             vim.keymap.set("n", "ç", toggle_jump, { desc = "Jump Code / Console" })
-            vim.keymap.set("n", "<leader>du", ":lua require('dapui').toggle()<cr>", { desc = "Toggle UI" })
-            vim.keymap.set("n", "<leader>de", ":lua require('dapui').eval()<cr>", { desc = "Evaluate Expression" })
-            vim.keymap.set("n", "<leader>dU", ":lua for i=1,5 do require('dapui').open({reset = true}) end<cr>",
+            vim.keymap.set("n", "<leader>dut", ":lua require('dapui').toggle()<cr>", { desc = "Toggle UI" })
+            vim.keymap.set({ "n", "v" }, "<leader>de", function()
+                require('dapui').eval()
+                require('dapui').eval()
+            end, { desc = "Evaluate Expression" })
+            vim.keymap.set("n", "<leader>dur", ":lua for i=1,5 do require('dapui').open({reset = true}) end<cr>",
                 { desc = "Reset UI" })
         end,
     }

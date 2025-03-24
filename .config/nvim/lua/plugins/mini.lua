@@ -10,7 +10,7 @@ return {
     {
 
         "echasnovski/mini.surround",
-        event = "VeryLazy",
+        event = "InsertEnter",
         config = function()
             require("mini.surround").setup({
 

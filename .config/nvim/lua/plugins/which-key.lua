@@ -1,6 +1,6 @@
 return {
     "folke/which-key.nvim",
-    event = "VeryLazy",
+    event = "BufReadPre",
     delendencies = { "folke/noice.nvim" },
     keys = {
         {
@@ -23,7 +23,6 @@ return {
 
         vim.keymap.set("n", "<leader>c", "", { desc = "Code" })
         vim.keymap.set("n", "<leader>d", "", { desc = "Debug" })
-        vim.keymap.set("n", "<leader>E", "", { desc = "Yazi" })
         vim.keymap.set("n", "<leader>f", "", { desc = "Find" })
         vim.keymap.set("n", "<leader>g", "", { desc = "Git" })
         vim.keymap.set("n", "<leader>gf", "", { desc = "Find" })

@@ -2,17 +2,18 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap
 
-keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear highlights" })
-keymap.set("n", "<leader>nc", ":checkhealth<CR>", { desc = "Check Health" })
-keymap.set("n", "<leader>nw", ":fclose<CR>", { desc = "Close Floating Windows" })
+keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear highlights", silent = true })
+keymap.set("n", "<leader>nc", ":checkhealth<CR>", { desc = "Check Health", silent = true })
+keymap.set("n", "<leader>nw", ":fclose<CR>", { desc = "Close Floating Windows", silent = true })
 
 keymap.set("n", "x", '"_x', { desc = "Delete character" })
 
 keymap.set("n", "<leader>=", "<C-a>", { desc = "Increase number" })
 keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrease number" })
 
-keymap.set("n", "<leader>w", ":w<CR>", { desc = "Write buffer" })
-keymap.set("n", "<leader>a", ":wa<CR>", { desc = "Write all buffers" })
+keymap.set("n", "<leader>w", ":w<CR>", { desc = "Write buffer", silent = true })
+keymap.set("n", "<leader>a", ":wa<CR>", { desc = "Write all buffers", silent = true })
+keymap.set("n", "<leader>u", ":e!<CR>", { desc = "Update buffer", silent = true })
 
 keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Vertical" })
 keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Horizontal" })

@@ -1,31 +1,27 @@
 return {
     "akinsho/bufferline.nvim",
-    event = "VeryLazy",
+    event = "BufReadPre",
     config = function()
-        require("bufferline").setup({
+        local bufferline = require("bufferline")
+        bufferline.setup({
+
+            options = {
+                style_preset = bufferline.style_preset.minimal,
+                show_buffer_close_icons = false,
+                show_close_icon = false,
+                indicator = {
+                    style = 'none'
+                },
+                separator_style = 'slant'
+            },
             highlights = {
                 fill = {
-                    bg = "#16161e",
-                },
-                background = {
-                    bg = "#16161e",
-                },
-                buffer_selected = {
-                    bg = "#1a1b26",
-                },
-                close_button_selected = {
-                    bg = "#1a1b26",
-                },
-
-            },
-            options = {
-                buffer_close_icon = '',
-                close_icon = '',
-                indicator = {
-                    style = "none"
+                    bg = '#16161e',
                 },
             }
+
         })
+
         vim.keymap.set('n', '<leader>nb', ':BufferLinePickClose<CR>', { desc = "Close Buffer" })
         vim.keymap.set('n', '<S-l>', ':BufferLineCycleNext<CR>', { desc = "Next" })
         vim.keymap.set('n', '<S-h>', ':BufferLineCyclePrev<CR>', { desc = "Prev" })
