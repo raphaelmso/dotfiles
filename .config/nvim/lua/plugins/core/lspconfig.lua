@@ -1,6 +1,8 @@
 return {
+--  TODO: Remove lspconfig after 0.11 
     {
         "neovim/nvim-lspconfig",
+        event = "VeryLazy",
         dependencies = {
             { "saghen/blink.cmp" },
         },
@@ -30,7 +32,6 @@ return {
 
 
             vim.diagnostic.config {
-                virtual_text = false,
                 severity_sort = true,
                 signs = {
                     text = {
@@ -50,22 +51,18 @@ return {
             vim.keymap.set("n", "<leader>cn", vim.lsp.buf.rename, { desc = "Rename" })
             vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, { desc = "Format" })
             vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Actions" })
+
             vim.keymap.set("n", "<leader>ch", ":lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<cr>",
-                { desc = "Toggle Inlay Hints", silent = true})
+                { desc = "Toggle Inlay Hints", silent = true })
+
+            vim.keymap.set('n', '<leader>cv', function()
+                local new_config = not vim.diagnostic.config().virtual_lines
+                vim.diagnostic.config({ virtual_lines = new_config })
+            end, { desc = 'Toggle diagnostic virtual_lines', silent = true})
 
             vim.keymap.set("n", "<leader>ni", ":LspInfo<cr>", { desc = "LSP Info" })
             vim.keymap.set("n", "<leader>nl", ":Lazy<cr>", { desc = "Lazy" })
         end,
-    },
-
-    {
-        "folke/lazydev.nvim",
-        ft = "lua",
-        opts = {
-            library = {
-                { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-            },
-        },
     },
 
 }

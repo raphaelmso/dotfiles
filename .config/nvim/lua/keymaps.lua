@@ -29,3 +29,4 @@ keymap.set('n', '<C-h>', '<C-w>h', { desc = "Left Buffer", noremap = true, silen
 keymap.set('n', '<C-j>', '<C-w>j', { desc = "Down Buffer", noremap = true, silent = true })
 keymap.set('n', '<C-k>', '<C-w>k', { desc = "Up Buffer", noremap = true, silent = true })
 keymap.set('n', '<C-l>', '<C-w>l', { desc = "Right", noremap = true, silent = true })
+keymap.set('n', '<C-p>', '<C-w>p', { desc = "Previous Window", noremap = true, silent = true })
