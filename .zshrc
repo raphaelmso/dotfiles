@@ -9,7 +9,7 @@ plug "zap-zsh/vim"
 plug "zap-zsh/completions"
 
 # export PATH
-export PATH=$PATH:/home/raphael/.local/share/bob/nvim-bin
+export PATH=$PATH:/home/raphaelmso/.local/share/bob/nvim-bin
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 
@@ -45,8 +45,6 @@ alias grep="rg"
 
 # Folder navigation 
 alias cdn="z ~/.config/nvim/ && eza --icons"
-alias cdl="z ~/Lab && eza --icons"
-alias cdg="z ~/Lab/Git/ && eza --icons"
 alias cdd="z ~/Dev/dotfiles/ && eza --icons"
 alias cdy="z ~/Downloads/ytdlp && eza --icons"
 alias cdo="z ~/Documents/'Obsidian Vault'/"
@@ -68,6 +66,5 @@ compinit
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
-eval "$(atuin init zsh)"
 
 fastfetch
