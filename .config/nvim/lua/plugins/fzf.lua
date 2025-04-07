@@ -4,15 +4,10 @@ return {
     dependencies = { "echasnovski/mini.icons" },
     config = function()
         local fzf = require("fzf-lua")
+
         fzf.setup({
             fzf_opts = {
                 ['--layout'] = 'reverse',
-            },
-            keymap = {
-                builtin = {
-                    ["<C-d>"] = "preview-page-down",
-                    ["<C-u>"] = "preview-page-up",
-                },
             },
         })
 
