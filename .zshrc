@@ -1,12 +1,12 @@
-# Created by Zap installer
-[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
 
-plug "zsh-users/zsh-history-substring-search"
-plug "zsh-users/zsh-autosuggestions"
-plug "zap-zsh/supercharge"
-plug "zsh-users/zsh-syntax-highlighting"
-plug "zap-zsh/vim"
-plug "zap-zsh/completions"
+zinit light "zsh-users/zsh-history-substring-search"
+zinit light "zsh-users/zsh-autosuggestions"
+zinit light "zsh-users/zsh-syntax-highlighting"
+zinit light "Aloxaf/fzf-tab"
 
 # export PATH
 export PATH=$PATH:/home/raphaelmso/.local/share/bob/nvim-bin
@@ -18,12 +18,25 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 export MANPAGER='nvim +Man!'
 
+# History 
+HISTFILE=~/.zsh_history
+HISTSIZE=10000000
+SAVEHIST=10000000
+
+setopt APPEND_HISTORY
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_REDUCE_BLANKS
+setopt HIST_VERIFY
+
+# Keys 
+bindkey -v
+
 # Shortcuts
 alias n="nvim"
-alias nz="nvim ~/.zshrc"
-alias ne="nix-env"
 alias e="yazi"
-alias gl="lazygit"
 alias dlv="yt-dlp -P ~/Videos/ytdlp/ --embed-chapters"
 alias dla="yt-dlp -f m4a -P ~/Videos/ytdlp/"
 alias ws="watch sensors"
@@ -66,5 +79,4 @@ compinit
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
-
-fastfetch
+source <(fzf --zsh)
