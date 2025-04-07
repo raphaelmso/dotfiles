@@ -8,6 +8,12 @@ return {
             fzf_opts = {
                 ['--layout'] = 'reverse',
             },
+            keymap = {
+                builtin = {
+                    ["<C-d>"] = "preview-page-down",
+                    ["<C-u>"] = "preview-page-up",
+                },
+            },
         })
 
         vim.keymap.set("n", "<leader>o", fzf.files, { desc = "File" })
