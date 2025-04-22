@@ -43,8 +43,8 @@ unset_main  = { fg = "#15161e", bg = "#9d7cd8", bold = true }
 unset_alt   = { fg = "#9d7cd8", bg = "#3b4261" }
 
 [status]
-separator_open    = ""
-separator_close   = ""
+# separator_open    = ""
+# separator_close   = ""
 # separator_style = { fg = "#3b4261", bg = "#3b4261" }
 
 # Progress
