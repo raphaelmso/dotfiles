@@ -53,7 +53,6 @@ return {
             end, { desc = 'Toggle diagnostic virtual_lines', silent = true })
 
             vim.keymap.set("n", "<leader>ni", ":LspInfo<cr>", { desc = "LSP Info" })
-            vim.keymap.set("n", "<leader>nl", ":Lazy<cr>", { desc = "Lazy" })
         end,
     },
 

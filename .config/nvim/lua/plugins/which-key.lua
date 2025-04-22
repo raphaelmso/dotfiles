@@ -23,6 +23,8 @@ return {
         vim.keymap.set("n", "<leader>c", "", { desc = "Code" })
         vim.keymap.set("n", "<leader>d", "", { desc = "Debug" })
         vim.keymap.set("n", "<leader>f", "", { desc = "Find" })
+        vim.keymap.set("n", "<leader>g", "", { desc = "Git" })
+        vim.keymap.set("n", "<leader>gf", "", { desc = "Find" })
         vim.keymap.set("n", "<leader>n", "", { desc = "General" })
         vim.keymap.set("n", "<leader>s", "", { desc = "Split" })
     end,
