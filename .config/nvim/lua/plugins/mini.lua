@@ -1,6 +1,6 @@
 return {
     {
-        'echasnovski/mini.pairs',
+        'nvim-mini/mini.pairs',
         version = false,
         event = "InsertEnter",
         config = function()
@@ -9,21 +9,21 @@ return {
     },
     {
 
-        "echasnovski/mini.surround",
+        "nvim-mini/mini.surround",
         event = "BufReadPre",
         config = function ()
             require('mini.surround').setup()
         end
     },
     {
-        "echasnovski/mini.icons",
+        "nvim-mini/mini.icons",
         event = "VeryLazy",
         config = function()
             require('mini.icons').setup()
         end
     },
     {
-        "echasnovski/mini.hipatterns",
+        "nvim-mini/mini.hipatterns",
         event = "BufReadPre",
         config = function()
             local hipatterns = require('mini.hipatterns')
