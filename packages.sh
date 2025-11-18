@@ -33,6 +33,10 @@ PACKAGES=(
   cliphist
   wl-clipboard
   udiskie
+  starship
+  grim
+  slurp
+  swappy
 )
 
 echo "installing packages"
