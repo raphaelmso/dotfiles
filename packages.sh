@@ -17,6 +17,8 @@ PACKAGES=(
   hyprlauncher
   hyprtoolkit
   hyprpaper
+  hyprpolkitagent
+  hyprpicker
   xdg-desktop-portal-hyprland
   xdg-user-dirs
   waybar
@@ -27,6 +29,10 @@ PACKAGES=(
   stow
   lua-language-server
   fastfetch
+  rofi
+  cliphist
+  wl-clipboard
+  udiskie
 )
 
 echo "installing packages"
