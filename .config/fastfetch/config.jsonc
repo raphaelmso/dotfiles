@@ -1,15 +1,11 @@
 {
     "logo": {
-    	"source": "~/.config/fastfetch/ascii/thinkpad.txt",
+    	"source": "arch_small",
         "height": 5,
         "width": 10,
         "padding": {
-            "top": 5,
-            "left": 3
-        },
-        "color": {
-            "1": "white",
-            "2": "red"
+            "top": 2,
+            "left": 5
         }
     },
     "modules": [
