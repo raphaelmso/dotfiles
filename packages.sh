@@ -37,6 +37,7 @@ PACKAGES=(
   grim
   slurp
   swappy
+  swaync
 )
 
 echo "installing packages"
