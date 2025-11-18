@@ -40,7 +40,7 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "bluetui"
     },
     "network": {
         "format-wifi": "   {essid} ({signalStrength}%)",
@@ -48,16 +48,18 @@
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
-	"on-click": "sh ~/scripts/rofi-wifi-menu/rofi-wifi-menu.sh"
+	"on-click": "kitty -e impala"
 	 
     },
     "cpu": {
         "format": "  {usage}%",
-        "tooltip": true
+        "tooltip": true,
+        "on-click": "kitty -e btop"
     },
     "memory": {
         "format": "  {}%",
-	"tooltip": true
+	    "tooltip": true,
+        "on-click": "kitty -e btop"
     },
     "temperature": {
         "interval": 10,
@@ -90,25 +92,25 @@
         "format": "{:%H:%M | %e %B}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     },
-      "custom/notification": {
-    "tooltip": true,
-    "format": "<span size='16pt'>{icon}</span>",
-    "format-icons": {
-      "notification": "󱅫",
-      "none": "󰂜",
-      "dnd-notification": "󰂠",
-      "dnd-none": "󰪓",
-      "inhibited-notification": "󰂛",
-      "inhibited-none": "󰪑",
-      "dnd-inhibited-notification": "󰂛",
-      "dnd-inhibited-none": "󰪑"
-    },
-    "return-type": "json",
-    "exec-if": "which swaync-client",
-    "exec": "swaync-client -swb",
-    "on-click": "swaync-client -t -sw",
-    "on-click-right": "swaync-client -d -sw",
-    "escape": true
+    "custom/notification": {
+        "tooltip": true,
+        "format": "<span size='10pt'>{icon}</span>",
+        "format-icons": {
+          "notification": "󱅫",
+          "none": "󰂜",
+          "dnd-notification": "󰂠",
+          "dnd-none": "󰪓",
+          "inhibited-notification": "󰂛",
+          "inhibited-none": "󰪑",
+          "dnd-inhibited-notification": "󰂛",
+          "dnd-inhibited-none": "󰪑"
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
   }
 
 }

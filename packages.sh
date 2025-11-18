@@ -38,6 +38,9 @@ PACKAGES=(
   slurp
   swappy
   swaync
+  impala
+  iwd
+  bluetui
 )
 
 echo "installing packages"

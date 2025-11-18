@@ -14,6 +14,7 @@
         "clock"
     ],
     "modules-right": [
+        "custom/notification",
         "idle_inhibitor",
         "pulseaudio",
         "network",
@@ -22,8 +23,7 @@
         "temperature",
         "hyprland/language",
         "battery",
-        "battery#bat2",
-        "custom/notification"
+        "battery#bat2"
     ],
     //Modules configuration
 

@@ -7,9 +7,9 @@
 window#waybar {
     background: rgba(26, 27, 38, 0);
     color: #c0caf5;
-    font-family: 
-        SpaceMono Nerd Font,
-        feather;
+    /* font-family:  */
+    /*     SpaceMono Nerd Font, */
+    /*     feather; */
     transition: background-color .5s;
 }
 
@@ -46,6 +46,7 @@ window#waybar {
 #scratchpad,
 #power-profiles-daemon,
 #language,
+#custom-notifications,
 #mpd {
     padding: 0 10px;
     border-radius: 15px;
