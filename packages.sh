@@ -37,10 +37,14 @@ PACKAGES=(
   grim
   slurp
   swappy
-  swaync
+  mako
   impala
   iwd
   bluetui
+  bluez
+  bluez-utils
+  ly
+  base-devel
 )
 
 echo "installing packages"
