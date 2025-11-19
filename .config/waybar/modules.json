@@ -49,7 +49,7 @@
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
-	"on-click": "kitty -e impala"
+	"on-click": "kitty -e nmtui"
 	 
     },
     "cpu": {

@@ -13,11 +13,14 @@ PACKAGES=(
   fzf
   less
   fd
-  firefox
+  chromium
   hyprlauncher
   hyprtoolkit
   hyprpaper
   hyprpolkitagent
+  hyprsunset
+  hypridle
+  hyprlock 
   hyprpicker
   xdg-desktop-portal-hyprland
   xdg-user-dirs
@@ -38,13 +41,15 @@ PACKAGES=(
   slurp
   swappy
   mako
-  impala
-  iwd
   bluetui
   bluez
   bluez-utils
   ly
   base-devel
+  man
+  tealdeer
+  zoxide
+  zsh
 )
 
 echo "installing packages"
