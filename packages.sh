@@ -50,6 +50,12 @@ PACKAGES=(
   tealdeer
   zoxide
   zsh
+  desktop-file-utils
+  eza
+  wiremix
+  gnome-themes-extra
+  nautilus
+  network-manager-applet
 )
 
 echo "installing packages"
