@@ -14,18 +14,17 @@
         "clock"
     ],
     "modules-right": [
+        "tray",
         "idle_inhibitor",
         "pulseaudio",
         "network",
         "cpu",
         "memory",
-        "temperature",
         "hyprland/language",
-        "battery",
-        "battery#bat2"
+        "battery"
     ],
-    //Modules configuration
 
+    //Modules configuration
     "include": [
 		"~/.config/waybar/modules.json"
 	]

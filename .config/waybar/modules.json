@@ -5,8 +5,6 @@
         "tooltip-format": "btw",
         "on-click": "kitty -e paru"
     },
-
-
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
@@ -41,7 +39,7 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "bluetui"
+        "on-click": "kitty -e wiremix"
     },
     "network": {
         "format-wifi": "   {essid} ({signalStrength}%)",
@@ -49,7 +47,7 @@
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
-	"on-click": "kitty -e nmtui"
+        "on-click": "nm-applet"
 	 
     },
     "cpu": {
@@ -72,7 +70,7 @@
     "hyprland/language": {
        "format": "  {}",
        "format-en": "EN",
-       "format-ru": "RU"
+       "format-pt": "BR"
     },
     "battery": {
         "states": {
@@ -86,11 +84,12 @@
         "format-alt": "{time}  {icon}",
         "format-icons": ["", "", "", "", ""]
     },
-    "battery#bat2": {
-        "bat": "BAT2"
-    },
     "clock": {
         "format": "{:%H:%M | %e %B}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    },
+    "tray": {
+      "icon-size": 12,
+      "spacing": 17
     }
 }
