@@ -56,6 +56,11 @@ PACKAGES=(
   gnome-themes-extra
   nautilus
   network-manager-applet
+  qt6-wayland
+  gnome-themes-extra
+  adw-gtk-theme
+  ripgrep
+  nwg-look
 )
 
 echo "installing packages"
