@@ -20,6 +20,8 @@ setopt HIST_REDUCE_BLANKS
 setopt HIST_VERIFY
 
 alias cd="z"
+alias x="zellij"
+alias n="nvim"
 alias ee="nvim ~/Dev/dotfiles/packages.sh"
 alias ii="sudo ~/Dev/dotfiles/packages.sh"
 alias hh="nvim ~/.config/hypr/hyprland.conf"
